@@ -1,0 +1,134 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 7}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=**$\dagger$] Use the definition of the convergent series to show that the following series converge. Find their sums. $$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2^{n-1}}=1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots+\frac{(-1)^{n-1}}{2^{n-1}}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{2n-1}{2^n}=\frac{1}{2}+\frac{3}{2^2}+\frac{5}{2^3}+\ldots+\frac{2n-1}{2^n}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\ldots+\frac{1}{n(n+1)}+\ldots$$
+\end{Exercise}
+
+\begin{Exercise}[title=*] Study the convergence of the series $\sum_{n=1}^{\infty}\sin (nx)$ for every $x\in\mathbb R^n$. 
+\end{Exercise}
+
+
+[Hint: Start fixing an arbitrary $x\in\mathbb R$ and study the convergence of the series by taking into consideration that for $x\neq \pi k$, $k\in\mathbb Z$, one can not have $\lim\limits_{n\to\infty}\sin(nx)=0$.]
+\bigskip
+
+\begin{Exercise}[title=**$\dagger$]
+	Which of the following series converge and which diverge? Explain. $$\sum_{n=0}^{\infty}(-1)^n=1-1+1-1+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n!}=\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\ldots+\frac{1}{n!}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n\sqrt{n+1}}=\frac{1}{\sqrt 2}+\frac{1}{2\sqrt 3}+\frac{1}{3\sqrt 4}+\ldots+\frac{1}{n\sqrt{n+1}}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{\sqrt{(2n-1)(2n+1)}}=\frac{1}{\sqrt {1\cdot 3}}+\frac{1}{\sqrt {3\cdot 5}}+\ldots+\frac{1}{\sqrt{(2n-1)(2n+1)}}+\ldots$$
+\end{Exercise}
+
+\begin{Exercise}[title=**] Let $\sum_{n=1}^{\infty} a_n$ be a series such that $\forall n\;\; a_n>0$. Show that if the limit \begin{equation*}\label{A}\lim\limits_{n\to\infty}\frac{a_{n+1}}{a_n}=q\end{equation*} exists, then the limit \begin{equation*}\label{B}\lim\limits_{n\to\infty}\sqrt[n]{a_n}=q\end{equation*} also exists.\\ Is the inverse statement true?
+\bigskip
+
+[Hint: consider $\sum_{n=1}^{\infty}\frac{3+(-1)^n}{2^{n+1}}$.]
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$] Find the radius of convergence of each of the following power series: $$\sum_{n=1}^{\infty}n^3z^n,\qquad\sum_{n=1}^{\infty}\frac{2^n}{n!}z^n,\qquad\sum_{n=1}^{\infty}\frac{2^n}{n^2}z^n,\qquad\sum_{n=1}^{\infty}\frac{n^3}{3^n}z^n.$$
+\end{Exercise}
+
+\begin{Exercise}[title=**] Prove that the sequence $(x_n)_n$ for
+	$$x_n=1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}-\ln n,\quad n\in\mathbb N \backslash \{0\}$$ converges to a certain constant $\gamma$, which is known as the Euler constant.
+\bigskip
+
+[Hint: try to show that the sequence is both bounded and decreasing. To show it is decreasing, recall that $ln(1-x)$ is a concave function. To  show it is bounded consider $\int_1^{n+1}\frac{1}{t}dt = ln(n+1)$, which sits between the harmonic series and $ln(n)$]
+
+
+\end{Exercise}
+
+\begin{Exercise}[title=*] Find the value of the sum $$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\ldots.$$
+
+[Hint: try to apply two times the formula from the previous problem]
+\end{Exercise}
+
+
+\begin{Exercise}[title={**}] Define the number $e\in \mathbb R$ by the sum of the series
+$$
+e=\sum_{n=0}^{\infty}\frac{1}{n!}.
+$$
+\begin{enumerate}
+	\item Show that this is a good definition (the series converges in $\mathbb{R}$) [Rudin 3.30].
+	\item {Show that $e$ is an irrational number [Rudin 3.31].}
+	\item {Show that $e$ is also the limit of the sequence $\Big(1+\frac{1}{n}\Big)^n$ [Rudin 3.32].}
+\end{enumerate}
+
+\end{Exercise}
+
+\end{document}
+

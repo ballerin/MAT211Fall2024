@@ -1,0 +1,271 @@
+\def\outputtype{s}  %s: serie;   c: correction
+
+\documentclass[12pt,a4paper]{article}
+%\input{ serieStyleMod}
+\usepackage{serieStyle}
+
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{ass}[theorem]{Assumption}
+\newtheorem*{notation*}{Notation}
+\newtheorem{ex}[theorem]{Example}
+\newtheorem*{ex*}{Example}
+\newtheorem{exs}[theorem]{Examples}
+\newtheorem*{exs*}{Examples}
+\newtheorem{app}[theorem]{Application}
+\newtheorem*{app*}{Application}
+\newtheorem{conjecture*}{Conjecture}
+
+\newtcbtheorem{Definition}{Definition}{
+	enhanced,
+	sharp corners,
+	attach boxed title to top left={
+		yshifttext=-1mm
+	},
+	colback=white,
+	colframe=gray!75!black,
+	fonttitle=\bfseries,
+	boxed title style={
+		sharp corners,
+		size=small,
+		colback=gray!75!black,
+		colframe=gray!75!black,
+	} 
+}{def}
+
+\newtcbtheorem{Theorem}{Theorem}{
+	enhanced,
+	sharp corners,
+	attach boxed title to top left={
+		yshifttext=-1mm
+	},
+	colback=white,
+	colframe=gray!75!black,
+	fonttitle=\bfseries,
+	boxed title style={
+		sharp corners,
+		size=small,
+		colback=gray!75!black,
+		colframe=gray!75!black,
+	} 
+}{thm}
+
+
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\Headperso}[2]{%
+\setcounter{isolution}{0}
+\noindent 
+Real Analysis \hfill  #2\\
+Francesco Ballerin \hfill Universitetet i Bergen
+\vskip2ex
+\hrule
+\vskip2ex
+\vskip2ex
+\begin{center}\large
+#1
+\end{center}
+\vskip2ex
+}
+
+\newcommand{\Tailperso}[1]{%
+\vfill	
+\vskip2ex\noindent
+\hrule
+\vskip2ex\noindent
+{\small
+Informations générales, séries, voir \url{https://moodle.unige.ch/course/view.php?id=5641}}
+\vskip2ex\noindent
+\vskip2ex
+}
+
+\begin{document}
+
+\Headperso{\textbf{Mandatory homework 3}\\ Deadline: November 6, 2023 (at 23:59)}{MAT211 Fall2023}
+
+
+\noindent
+\textit{This mandatory homework consists of three exercises. They need time to be solved properly, so start to work on them well in advance. I strongly advise you to try the exercises on your own, then compare your solutions with the other students, and to ask questions to either Torunn or me if you are really stuck. Try to be as \textbf{rigorous and clear} as possible. If the exercise consists of finding a solution, then finding and stating the solution is not sufficient, and will give you zero points: you have to properly write the procedure to achieve the solution in terms of mathematical statements.
+	This homework is designed as a training for the exam, and is a \textbf{mandatory} part of the course.
+	The outcomes of the assignment are pass/fail, with a threshold of 50\%. Try to complete as much of the assignment as possible, as only correct parts of the work count towards the 50\%. Failure to pass this mandatory assignment will automatically exclude a candidate from the final exam.}
+
+\bigskip
+\bigskip
+
+\noindent\textbf{Exercise 1: Normed vector spaces and linear maps}\\
+
+Let us recall a few useful definitions:
+
+\begin{Definition}{Norm}{}
+	Let $V$ be a vector space. A function $\|\cdot\|:V\to\R$ is said to be a \textbf{norm} on $V$ if
+	\begin{enumerate}[label=(\roman*)]
+		\item $\| \textbf{x}\|\geq0$ for any $\textbf{x}\in V$, and  $\| \textbf{x}\|=0\iff\textbf{x}=\textbf{0}$
+		\item $\|\lambda \textbf{x} \|=|\lambda|\cdot \| \textbf{x}\|$ for any $\lambda\in\mathbb{R}$, $\textbf{x}\in V$
+		\item $\|\textbf{x}+\textbf{y}\|\leq \| \textbf{x}\| + \|\textbf{y} \|$ for all $\textbf{x},\textbf{y}\in V$
+	\end{enumerate}
+\end{Definition}
+
+\begin{Definition}{Normed vector space}{}
+	The pair $(V, \|\cdot\|)$, where $V$ is a vector space and $\|\cdot\|:V\to\R$ is a norm, is said to be a \textbf{normed vector space}.
+\end{Definition}
+
+\begin{Definition}{Linear map}{}
+	Let $V$ and $W$ be a vector spaces. A function $L:V\to W$ is said to be \textbf{linear} if
+	\begin{enumerate}[label=(\roman*)]
+		\item $f(\textbf{x}+\textbf{y})=f(\textbf{x})+f(\textbf{y})$ for $\textbf{x},\textbf{y}\in V$
+		\item $f(a \textbf{x}) = a f(\textbf{x})$ for every $\textbf{x}\in V$, $a\in \R$
+	\end{enumerate}
+\end{Definition}
+
+\begin{Definition}{Lipschitz continuity}{}
+	Let $(X, d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to V$ is said to be \textbf{Lipshitz continuous} if there is a constant $C\geq 0$ such that
+	$$d_Y(f(x), f(y))\leq C d_X(x,y)$$
+\end{Definition}
+
+\begin{Theorem}{}{}
+	Let $(V,\lVert\cdot\rVert_V)$ and $(W,\lVert\cdot\rVert_W)$ be normed vector spaces and $f:V\to W$ be a linear function. The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+	\item $f$ is continuous.
+	\item $f$ is continuous at $0$.
+	\item The image of the open unit ball is bounded.
+	\item The image of every bounded set is bounded.
+	\item There exists $C>0$ such that for all $\textbf{x}\in V$ it holds that 
+	$
+	\| f(\textbf{x}) \|_W\leq C  \| \textbf{x} \|_V.
+	$
+	\item $f$ is Lipschitz.
+\end{enumerate}
+\end{Theorem}
+
+\bigskip
+\bigskip
+
+\noindent Let $(V,\lVert\cdot\rVert_V)$ and $(W,\lVert\cdot\rVert_W)$ be normed vector spaces, and $f:V\to W$ a linear function. To prove the theorem proceed in the following way:
+\begin{enumerate}
+	\item Show that for any vector space $V$ or $W$ endowed with a norm $\lVert\cdot\rVert$, the norm induces a distance $d(\textbf{x},\textbf{y})=\|\textbf{x}-\textbf{y} \|$ making the normed vector space into a metric space (show that $d$ is in fact a distance).
+	\item Show that if $f$ is continuous then it is continuous also at $\textbf{0}$.
+	\item Show that if $f:V\to W$ is continuous at $\textbf{0}$ then the image of the open unit ball is bounded.
+	\item Show that if the image of the open unit ball through $f$ is bounded then the image of any bounded set is bounded.
+	\item Show that if the image of any bounded set through $f$ is bounded then there exists $C>0$, such that for all $\textbf{x}\in V$ it holds that 
+	$
+	\| f(\textbf{x}) \|_W\leq C  \| \textbf{x} \|_V.
+	$
+	\item Show that if there exists $C>0$, such that for all $\textbf{x}\in V$  
+	$
+	\| f(\textbf{x}) \|_W\leq C  \| \textbf{x} \|_V
+	$
+	, then $f$ is Lipshitz.
+	\item Show that if $f$ is Lipshitz then $f$ is continuous.
+\end{enumerate}
+\bigskip
+
+\newpage
+\noindent\textbf{Exercise 2 - Connected, path-connected, convex and star-shaped spaces}\\
+
+To solve the next exercise we will make use of the following definitions:
+
+\begin{Definition}{Path-connected set}{}
+	Let $(X,d)$ be a metric space. We say that a subset $E\subset X$ is \textbf{path-connected} (or connected by paths) if for any two points $x,y\in E$ there exists a continuous function $\gamma:[0,1]\to E$ s.t. $\gamma(0)=x$ and $\gamma(1)=y$.
+\end{Definition}
+
+\begin{Definition}{Convex set}{}
+	Let $(X,d)$ be a normed vector space where $d$ is the distance naturally induced by the norm. We say that a subset $E\subset X$ is \textbf{convex} if for any two points $\textbf{x},\textbf{y}\in E$ and real number $\lambda\in[0,1]$ then $\lambda\textbf{x}+ (1-\lambda)\textbf{y}\in E$.
+\end{Definition}
+
+\begin{Definition}{Star-shaped set}{}
+	Let $(X,d)$ be a normed vector space where $d$ is the distance naturally induced by the norm. We say that a subset $E\subset X$ is \textbf{star-shaped} if there is a point $\textbf{x}\in E$ s.t. for any other point $\textbf{y}\in E$ and $\lambda\in[0,1]$ then $\lambda\textbf{x}+ (1-\lambda)\textbf{y}\in E$.
+\end{Definition}
+
+\begin{enumerate}
+	\item Show that a subset $E$ of a metric space $(X,d)$ is disconnected (not connected) if and only if it can be writted as the union of two disjoint non-empty open sets relatively to $E$ (open in relative topology w.r.t. $E$) .
+	
+	[Hint: one implication is easy. For the other one consider that in relative topology, relative to $E=A\cup B$, if $A\cap\overline B=\emptyset$ then $B\subset \overline B\cap E \subset E\backslash A = B$]
+	\item Show that a non-empty set $E\subset X$ is connected (in the usual sense) if and only if all continuous maps $h:E\mapsto \{0,1\}$ (maps from $E$ that admits either 0 or 1 as values) are constant maps.
+	\item Show that if a set is path connected then it is also connected, but that the converse is not true.
+	\item Show that if a set is convex then it is path-connected, but that the converse is not true.
+	\item Show that if a set is star-shaped then it is path-connected.
+	
+	\item Consider the following set of matrices $$SO_2:=\left\{ \begin{pmatrix} 
+		\cos(t)& -\sin(t)\\
+		\sin(t) & \cos(t)
+	\end{pmatrix} \Big|\; t\in\mathbb{R} \right\}$$ Prove that $SO_2$ is path-connected. 
+\end{enumerate}
+\bigskip
+
+\newpage
+\noindent\textbf{Exercise 3 - Topology of the orthogonal group}\\
+\begin{Definition}{The General Linear group of dimension $d$}{}
+	Let $\mathcal M_d(\R)$ be the space of $d$-dimensional square matrices with real numbers as entries. Let $GL_d(\R)$ is the subset of $M_d$ of matrices that are invertible, i.e. whose determinant is different from zero. This group takes the name of \textbf{general linear group} of dimension $d$. It can be shown that this is a group w.r.t. matrix multiplication. We can also define a norm on $\mathcal M_d(\R)$ (hence on $GL_d(\R)$) for a matrix $M$ by
+	$$\norme{M}=\sqrt{\Trace(M^T M)}=\sqrt{\sum_{i,j} \abs{m_{i,j}}^2}$$
+	where $\Trace$ is the trace operator (sum of the entries in the diagonal), $M^T$ is the transpose matrix of $M$, and $m_{i,j}$ is the element of the matrix $M$ on the $i$-th row and $j$-th column.
+\end{Definition}
+\begin{Definition}{The Orthogonal group}{}
+	The orthogonal group is a subgroup of $\GL_d(\R)$ (for the multiplication of matrices) given by
+	$$\Or_d(\R)=\{M\in \MM_d(\R) \;|\; M M^T=M^T M=I_d\}.$$
+\end{Definition}
+\begin{Definition}{Vector space of symmetric matrices}{}
+	The vector space of symmetric matrices is
+	$$\SS_d(\R)=\{M\in \MM_d(\R)\;|\; M^T=M\}.$$
+\end{Definition}
+\begin{Definition}{The set of symmetric semi-definite matrices}{}
+	The set of symmetric semi-definite matrices is
+	$$\SS_d^+(\R)=\{M\in \SS_d(\R)\;|\; x^TMx\geq 0, \forall x\in \R^d\}.$$
+\end{Definition}
+\begin{Definition}{The set of symmetric definite matrices}{}
+	Similarly, the set of symmetric definite matrices is
+	$$\SS_d^{++}(\R)=\{M\in \SS_d^+(\R)\;|\; x^TMx> 0, \forall x\neq 0\}.$$
+\end{Definition}
+\begin{Definition}{Connected components}{}
+	For a metric space $(X,d)$ and a point $x\in X$ the connected component of a point $x$ in $X$ is the union of all connected subsets of $X$ that contain $x$. 
+\end{Definition}
+
+
+
+\begin{enumerate}
+\item Show that the norm introduced for matrices satisfies the axioms of norm.
+\item Describe $\Or_1(\R)$. What are its elements? How many are they? How many connected components are there in $\Or_1(\R)$?
+\item Define $f:\MM_d(\R)\to \MM_d(\R)$ s.t. $f(M)=MM^T$. Show that $f$ is continuous. Deduce that $\Or_d(\R)$ is closed.
+
+[Hint: showing that $f$ is continuous by applying the definition is not trivial. What do we know about continuity of vector functions? ]
+\item What is the norm of an element of $\Or_d(\R)$? Show that $\Or_d(\R)$ is bounded. Deduce that $\Or_d(\R)$ is compact.
+
+[Hint: can we use Heine-Borel, which is given in the book only for $\R^n$ and Euclidean metric? Why?]
+\item Show that $\SS_d(\R)$ and $\SS_d^+(\R)$ are closed. 
+
+[Hint: for $\SS_d(\R)$ consider the continuous function $f\colon M\mapsto M-M^T$. For $\SS_d^+(\R)$ take a sequence $(M_n)_n$ and show that the limit is still in $\SS_d^+(\R)$.]
+\item Show that $\overline{\SS_d^{++}(\R)}=\SS_d^+(\R)$.
+
+[Hint: we know that $\SS_d^+(\R)$ is closed, hence it contains all its limit points. All is left to show is that for all elements in $\SS_d^+(\R)$ we can construct a sequence in $\SS_d^{++}(\R)$ that converges to it.]
+\end{enumerate}
+
+
+
+
+\solution{
+
+}
+
+
+
+
+
+
+%\Tailperso
+ 
+\end{document}
+

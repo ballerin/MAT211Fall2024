@@ -1,0 +1,153 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 6}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=**$\dagger$]
+Show that the following sequences converge:
+$$\begin{aligned}
+	(a_n)_{n\in\mathbb{N}} &\text{ with } &a_n&=(1+\frac{1}{2})(1+\frac{1}{4})\ldots(1+\frac{1}{2^n})\\
+	(b_n)_{n\in\mathbb{N}} &\text{ with } &b_1&= \sqrt 2 \\
+	& &b_2  &=\sqrt{2+\sqrt 2}\\
+	& &b_n &=\sqrt{2+\sqrt{2+\ldots+\sqrt 2}}\\
+	(c_n)_{n\in\mathbb{N}} &\text{ with } &c_n &= 1+\frac{1}{2^2}+\frac{1}{3^2}+\ldots+\frac{1}{n^2}
+\end{aligned}
+$$
+
+[Hint: Prove that the sequences $(a_n)_{n=1}^{\infty}$ and $(b_n)_{n=1}^{\infty}$ are monotonic and bounded. Show that $(c_n)_{n=1}^{\infty}$ is a Cauchy sequence using the inequality $\frac{1}{n^2}<\frac{1}{n-1}-\frac{1}{n}$, $n\in\mathbb N$.]
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+Recall that the partial limits of a given sequence are the limits of subsequences. Find all the partial limits for following sequences:
+\begin{itemize}
+	\item[i)]{$$\frac{1}{2},\frac{1}{2},\frac{1}{4},\frac{3}{4},\frac{1}{8},\frac{7}{8},\ldots,\frac{1}{2^n},\frac{2^n-1}{2^n},\ldots$$}
+	\item[ii)]{$$1,\frac{1}{2},1+\frac{1}{2},\frac{1}{3},1+\frac{1}{3},\frac{1}{2}+\frac{1}{3},\frac{1}{4},1+\frac{1}{4},\frac{1}{2}+\frac{1}{4},\frac{1}{3}+\frac{1}{4},$$ $$\frac{1}{5}\ldots,\frac{1}{n},1+\frac{1}{n},\frac{1}{2}+\frac{1}{n},\ldots,\frac{1}{n-1}+\frac{1}{n},\frac{1}{n+1},\ldots$$}
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title= *]  
+Give an example of a sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb R$ such that a finite set of numers $$a_1,a_2,\ldots,a_p$$ are partial limits for $(x_n)_{n\in\mathbb{N}}$.
+\end{Exercise}
+
+\begin{Exercise}[title= **]
+Give an example of a sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb R$ such that a countably infinite set of numers $$a_1,a_2,\ldots,a_p, \ldots$$ are partial limits for $(x_n)_{n\in\mathbb{N}}$. What are other partial limits does the sequence $(x_n)_{n\in\mathbb{N}}$ admit?
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Review the proof of Theorem 3.17 of Rudin, which says that for a sequence $(s_n)_n$ of real numbers and $E$ the set of all the limits of subsequences $(s_{n_k})_k$ of $(s_n)_n$, $\sup E$ has the following properties:
+	\begin{enumerate}
+		\item $\sup E \in E$
+		\item if $x>\sup E$ then there is a natural number $N\in\N$ such hat for $n\geq N$ it holds that $S_n<x$
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	Show that for wo sequences $(s_n)_n$ and $(t_n)_n$ in $\R$, if $s_n\leq t_n$ for $n\geq N$ where $N$ is a fixed natural number, then
+	$$\liminf_{n\to\infty} s_n \leq \liminf_{n\to\infty} t_n$$
+	$$\limsup_{n\to\infty} s_n \leq \limsup_{n\to\infty} t_n$$
+\end{Exercise}
+
+\begin{Exercise}[title= **]
+Let $(x_n)_{n\in\mathbb{N}}$ and $(y_n)_{n\in\mathbb{N}}$ be (not necessarily converging) sequences in $\mathbb{R}$.
+\begin{itemize}
+	\item[i)] Show that $$\liminf\limits_{n\to\infty}x_n+\liminf\limits_{n\to\infty}y_n\leq\liminf\limits_{n\to\infty}(x_n+y_n)\leq \liminf\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n$$
+	\item[ii)] Show that $$\liminf\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n\leq\limsup\limits_{n\to\infty}(x_n+y_n)\leq \limsup\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n$$
+	\item[iii)] Construct examples that make the previous inequalities strict.
+\end{itemize}
+\end{Exercise}
+
+
+\begin{Exercise}[title=**$\dagger$]
+	[Rudin 3.4]
+Find the $\limsup$ and $\liminf$ for each one of the following sequences:
+\begin{enumerate}
+	\item[i)] $u_n=(-1)^n$,
+	\item[ii)] $u_n=n\cos(\frac{n\pi}{4})$,
+	\item[iii)] $u_1=0$; $u_{2n}=\frac{u_{2n-1}}{2}$; $u_{2n+1}=\frac{1}{2} + u_{2n}$,
+	\item[iv)] $u_n=\sin(n)$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title= **$\dagger$]
+Let $(p_n)_{n\in\mathbb{N}}$ and $(q_n)_{n\in\mathbb{N}}$ be Cauchy sequences in a metric space $(X,d)$. Let $(d_n)_{n\in\mathbb{N}}$ be the sequence of distances between $p_n$ and $q_n$, i.e.  $d_n=d(p_n,q_n)$. Show that $(d_n)_{n\in\mathbb{N}}$ converges in $\mathbb R$.
+\end{Exercise}
+
+\end{document}
+

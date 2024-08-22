@@ -1,0 +1,171 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 2}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=*]
+	Prove Proposition 1.15 of Rudin.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Complete the rest of the proof of Proposition 1.18 of Rudin.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Complete the rest of the proof of Theorem 1.4.5 of Abbott.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is the set of all irrational numbers countably infinite?
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Let $S$ be a set. The \textit{power set} of $S$, also denoted by $2^{S}$, is defined to be the set of all possible subsets of $S$. As an example, the power set of $\{0,1,2\}$ is $$\{\emptyset,\{0\},\{1\},\{2\},\{0,1\},\{0,2\},\{1,2\},\{1,2,3\}\}$$
+	
+	Consider now the power set of the natural numbers $2^\mathbb N$. What is the cardinality of this set? (i.e. is it countable or uncountable?).
+	
+	\bigskip
+	
+	[Hint: by contradiction assume it is countable and try to proceed in the same way as the proof for $\mathbb R$ uncountable]
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Let $X$ be an infinite set. Show that, for any $A\subset X$ finite, the sets $X$ and $X\setminus A$ have the same cardinality. 
+\end{Exercise}
+
+\begin{Exercise}[title=\text{**$\dagger$ - Hilbert's Hotel}]
+	Hilbert's paradox of the Grand Hotel is a thought experiment that was introduced in a lecture by the famous mathematician David Hilbert to convey the notion of a set being either countable or uncountable. The idea is the follow:
+	
+	You are the manager at a Grand Hotel. Actually, the Grandest hotel on earth. It is so Grand it has an infinite amount of rooms, all numbered with a number in $\mathbb N$ (room 0, room 1, room 2, ...). 
+	
+	\begin{itemize}
+		\item One day you find yourself with all rooms fully booked when a new customer shows up and ask if you can accomodate him at your hotel. Can you do that? (Mathematically, is the cardinality of $\mathbb N$ the same as $\mathbb N$ with an added value? Show a mapping between the 2 sets if it is or explain why it is not.)
+		
+		\item What if multiple new customers, in a finite amount (say $n$), show up? Can you accomodate them at your hotel? (Mathematically, is the cardinality of $\mathbb N$ the same as $\mathbb N$ with $n$ added values?)
+		
+		\item Suppose now a bus with a countable amount of new customers shows up. Can you accomodate all the new customers?
+		
+		\item Suppose now a countable amount of busses, each with a countable amount of new customers show up. Can you accomodate all the new customers?
+		
+		\item \textit{The problem can be extended as many (finite) layers one desires. }
+		
+	\end{itemize}
+	This problem is a nice example of how statements like "there is a guest to every room" and "no more guests can be accommodated" are intuitively equivalent in the finite case but become not equivalent when there are (countably) infinite many rooms. 
+	
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	A set $S\subset\R$ is said to be bounded if $\exists M$ s.t. $\forall x\in S$ it holds that $|x|\leq M$.
+	
+	Is the union of two bounded sets a bounded set? What about the union of countably infinite bounded sets? 
+\end{Exercise}
+
+\begin{Exercise}[title=***]
+	A real number $\R$ is said to be \emph{algebraic} if there exist integers $a_0, a_1, a_2,\dots, a_n\in\mathbb{Z}$, not all zero, s.t. 
+	\[a_n x^n + a_{n-1}x^{n-1}+\cdots+ a_1x + a_0 =0\]
+	i.e. if it is the root of a non-zero polynomial. If a real number is not algebraic then it is said to be \emph{transcendental}.
+	\begin{enumerate}
+		\item Show that all natural numbers are algebraic.
+		\item Show that $\sqrt 2$ and $\sqrt 3$ are algebraic.
+		\item Show that $\sqrt2 + \sqrt3$ is algebraic.
+		\item For $n\in\N$ let $A_n$ be the sets of roots of polynomials of degree $n$ (any plynomial of degree $n$). It is a known fact that a specific polynomial of degree $n$ has at most $n$ roots (exactly $n$ if we consider the complex numbers rather than the real numbers). Is $A_n$ countable?
+		\item Is the set of all algebraic numbers countable?
+		\item What about the set of all transcendental numbers?
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title = ***]
+	Exercise 1.5.11 of Abbott.
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Verify, using the definition of convergence of a sequence (i.e. given an $\epsilon$ find the corresponding $N\in\N$), that the following sequences converge to the proposed limit:
+	\begin{enumerate}
+		\item $\lim \frac{1}{\sqrt n} = 0$
+		\item $\lim \frac{n+1}{n} = 1$
+		\item $\lim \frac{2n+1}{5n+4} = \frac{2}{5}$
+		\item $\lim \frac{2n^2}{n^3+3} = 0$
+		\item $\lim \frac{\sin(n^2)}{\sqrt[3]{n}} = 0$
+	\end{enumerate}
+\end{Exercise}
+
+
+\end{document}
+

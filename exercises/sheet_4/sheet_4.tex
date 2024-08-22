@@ -1,0 +1,153 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 4}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=*$\dagger$]
+	Let $x,y\in \mathbb R$. Define the following functions:
+	$$d_1(x,y)=(x-y)^2$$
+	$$\quad d_2(x,y)=|x^2-y^2|$$
+	$$\quad d_3(x,y)=\frac{|x-y|}{1+|x-y|}$$
+	Determine, for each one of these, whether it is a metric or not.\\
+	\smallskip
+	Assume now that $(X,d)$ is a metric space. Is $\delta=\frac{d}{1+d}$ a distance?
+\end{Exercise}
+
+\begin{Exercise}[title=** - $\ell_p$ spaces]
+	Let us consider the set $\mathbb R^n$ and the functions $\rho_p\colon \mathbb R^n\times \mathbb R^n\to \mathbb R$ defined by $$\rho_p(x,y)=(\sum_{k=1}^{n}|x_k-y_k|^p)^{1/p},\quad 1\leq p<\infty.$$ Show that $(\mathbb R^n, \rho_p)$ are metric spaces.
+	
+	Hint:
+	\begin{itemize}
+		% \item [1.]{Assume the H\"{o}lder inequality. {\it Let $1<p<\infty$ and $q$ is defined by $1/p+1/q=1$}. Given $x,y\in\mathbb R^n$ we have $$\sum_{k=1}^{n}|x_ky_k|\leq (\sum_{k=1}^{n}|x_k|^p)^{1/p}(\sum_{k=1}^{n}|y_k|^q)^{1/q}.$$}
+		\item[1.]{Assume the Minkowski inequality to be true:\\{\it Let $1<p<\infty$. If $x\in\mathbb R^n$ then we denote $|x|_p=(\sum_{k=1}^{n}|x_k|^p)^{1/p}$ (it is called $p$-norm of $x\in \mathbb R^n$).  Then if $x,y\in\mathbb R^n$ it follows that $$|x+y|_p\leq|x|_p+|y|_p.$$}}
+		\item[2.]{Use this inequality to prove the triangle inequality for $\rho_p$.}
+	\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$ - The Manhattan distance]
+	Let the "Manhattan distance" function $\rho_{max}(x,y)$ for $x,y\in\mathbb R^n$, $n\in\mathbb N$ be $$\rho_{\max}(x,y)=\max\limits_{1\leq k\leq n}\{|x_k-y_k|\}$$ Is $\rho_{max}$ a metric in $\mathbb R^2$? Why do you think it is called the "Manhattan distance"?
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Draw the balls $B_1(0)$, i.e. the balls centered in the origin of radius 1, in the metric spaces $(\mathbb R^2,\rho_1)$, $(\mathbb R^2,\rho_2)$, $(\mathbb R^2,\rho_3)$, and $(\mathbb R^2,\rho_{max})$, where the distances $\rho_1, \rho_2,\rho_3$ and $\rho_{max}$ are defined as in the previous exercises.
+\end{Exercise}
+
+\begin{Exercise}[title=***]
+	Show that $\rho_p$ tends to $\rho_{max}$ as $p\to\infty$ in any $\mathbb R^n$.
+	
+	[Hint: Try to bound $\rho_p$ both from below and above. Also consider splitting $p$ in $p-q+q$ for a fixed $q<p$.]
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Recall the definition of a bounded set in a metric space $(X,d)$. Show that a finite union of bounded sets is a bounded set. Is it true for a countable union of bounded sets? Why or why not? If not, can you show an example?
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	 Let $X=[0,1]\cup[2,4)$, with $d(x,y)=|x-y|$.
+	\begin{enumerate}
+		\item $A=[2,4)$ is it open ? Is it closed ?
+		\item Show that $B=[0,1]$ is both open and closed
+		\item What about $X$?
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	Decide, by using the definitions, whether the following sets are open or closed:
+	\begin{enumerate}
+		\item $\Q$
+		\item $\N$
+		\item $\R \backslash \{0\}$
+		\item $\left\{\frac{1}{n}\bigst n\in\N^\ast\right\}$
+		\item $\left\{\frac{1}{n^2}\bigst n\in\N^\ast\right\}$
+	\end{enumerate}
+\end{Exercise}
+
+
+\begin{Exercise}[title=**]
+	Prove that $\overline{A\cup B} = \overline A \cup \overline B$. Does the same result hold true when considering infinite unions of sets?
+	
+	
+	[Hint: Consider $\Q$]
+	
+\end{Exercise}
+
+
+\end{document}
+

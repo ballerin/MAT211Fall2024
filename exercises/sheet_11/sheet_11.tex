@@ -1,0 +1,156 @@
+% \textsc{}!TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 11}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title={*}]
+	Let $f,g:\R\to\R$. Find an example, or prove the impossibility of finding one, for the following requests:
+	\begin{enumerate}
+		\item $f$ and $g$ not differentiable at zero so that $fg$ differentiable at zero.
+		\item $f$ not differentiable at zero and $g$  differentiable at 0 so that $fg$ differentiable at zero.
+		\item $f$ not differentiable at zero and $g$ differentiable at 0 so that $f+g$ differentiable at zero.
+		\item $f$ differentiable at zero but not at any other point (or more in general a function that is only differentiable at a point)
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	In this exercise we will see that the mean value theorem in Lagrange's formulation does not hold for complex functions. Let $x\in\R$ and let $$f(x)=e^{ix} = \cos x + i\sin x$$
+	be a complex valued function.
+	\begin{enumerate}
+		\item Compute $f(0)$ and $f(2\pi)$.
+		\item Compute $f'(x)$.
+		\item Compute $\lvert f'(x) \rvert$ and argue that $f'(x)\neq 0$.
+		\item Show that Thm. 5.10 of Rudin does not hold.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	In this exercise we will see that l'Hospitals rule does not hold for complex functions. Let $x\in(0,1)$ and let $$f(x)=x$$ and $$g(x)=x + x^2 e^\frac{i}{x^2}.$$
+	\begin{enumerate}
+		\item Show that $$\lim_{x\to 0} \frac{f(x)}{g(x)} = 1$$
+		\item Compute $g'(x)$ and $f'(x)$.
+		\item Show that $$\lim_{x\to 0} \frac{f'(x)}{g'(x)} = 0$$
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+[Example of function which differs from its Taylor series]\\
+Let $f(x)=0$ if $x\leq0$, $f(x)=e^{-\frac{1}{x^2}}$ if $x>0$.
+\begin{enumerate}
+	\item Compute derivatives of $f$ up to a certain order, and prove that $f$ is $C^{\infty}(\mathbb{R})$.
+	\item Evaluate the derivatives computed at the previous point around $x=0$
+	\item Compute the Taylor series around 0. Do we have that $f(x)=\displaystyle\sum_{n=0}^{\infty} x^n \frac{f^{(n)}(0)}{n!}$, where $f^{(n)}$ is the $n$-th derivative of $f$?
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title={**}]
+	Recall the construction of the Riemann integral as seen in previous courses. As a reference one can look at chapter 6 of Rudin or chapter 7 of Abbott. Recall that we define the upper and the lower Riemann integrals as
+	$$\overline{\int_a^b} f dx = \inf_P U(P,f)$$
+	$$\underline{\int_a^b} f dx = \sup_P L(P,f)$$
+	where the supremum and the infimum are taken over all possible partitions of $(a,b)$, and $U$ and $L$ are the upper and lower sums, as defined in the construction of the integral.
+	
+	Show that
+	$$\underline{\int_a^b} f dx \leq \overline{\int_a^b} f dx.$$
+	
+\end{Exercise}
+
+\begin{Exercise} [title={**}]
+	Show that a linear combination of integrable functions on $(a,b)$ is integrable on $(a,b)$, i.e. that for $f,g\in\mathcal R((a,b))$ and $\alpha, \beta\in\R$ then $\alpha f + \beta g \in \mathcal  R((a,b))$. Also show that
+	$$\alpha\int_a^b f dx + \beta\int_a^b g dx = \int_a^b \alpha f + \beta g dx.$$
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+\begin{enumerate}
+	\item For $n\geq 1$ let $f_n(x)=x^n$. Is the sequence $f_n$ uniformly convergent on the closed interval $[0,1]$?
+	\item What about on the open interval $(0,1)$?  
+	\item Let $K$ be a compact subset of $(0,1)$. Does the sequence $f_n$ converge uniformly to the constant function 0?  
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	When treating sequences in $\R$ (or $\C$) it is easy to define the convergence of infinite series in terms of partial sums, and to extend Cauchy's criterion from sequences to series. Do the same for sequences of functions:
+	\begin{enumerate}
+		\item Define uniform convergence of series in terms of partial sums of sequences of functions.
+		\item We have a Cauchy criterion for uniform convergence of sequences of functions. Extend this criterium for series of functions.
+	\end{enumerate}
+\end{Exercise}
+
+\end{document}
+

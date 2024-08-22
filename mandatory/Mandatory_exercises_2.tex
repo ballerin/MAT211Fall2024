@@ -1,0 +1,151 @@
+\def\outputtype{s}  %s: serie;   c: correction
+
+\documentclass[12pt,a4paper]{article}
+%\input{ serieStyleMod}
+\usepackage{serieStyle}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{float}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{remarks}[theorem]{Remarks}
+\newtheorem*{remarks*}{Remarks}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{ass}[theorem]{Assumption}
+\newtheorem*{notation*}{Notation}
+\newtheorem{ex}[theorem]{Example}
+\newtheorem*{ex*}{Example}
+\newtheorem{exs}[theorem]{Examples}
+\newtheorem*{exs*}{Examples}
+\newtheorem{app}[theorem]{Application}
+\newtheorem*{app*}{Application}
+\newtheorem{conjecture*}{Conjecture}
+
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\bigo}{\mathcal{O}}
+\newcommand{\Headperso}[2]{%
+\setcounter{isolution}{0}
+\noindent 
+Real Analysis \hfill  #2\\
+Francesco Ballerin \hfill Universitetet i Bergen
+\vskip2ex
+\hrule
+\vskip2ex
+\vskip2ex
+\begin{center}\large
+#1
+\end{center}
+\vskip2ex
+}
+
+\newcommand{\Tailperso}[1]{%
+\vfill	
+\vskip2ex\noindent
+\hrule
+\vskip2ex\noindent
+{\small
+Informations générales, séries, voir \url{https://moodle.unige.ch/course/view.php?id=5641}}
+\vskip2ex\noindent
+\vskip2ex
+}
+
+\begin{document}
+
+\Headperso{\textbf{Mandatory homework 2}\\ Deadline: October 16, 2023 (at 23:59)}{MAT211 Fall2023}
+
+\noindent
+\textit{This mandatory homework consists of two exercises. They need time to be solved properly, so start to work on them well in advance. I strongly advise you to try the exercises on your own, then compare your solutions with the other students, and to ask questions to either Torunn or me if you are really stuck. Try to be as \textbf{rigorous and clear} as possible. If the exercise consists of finding a solution, then finding and stating the solution is not sufficient, and will give you zero points: you have to properly write the procedure to achieve the solution in terms of mathematical statements.
+	This homework is designed as a training for the exam, and is a \textbf{mandatory} part of the course.
+	The outcomes of the assignment are pass/fail, with a threshold of 50\%. Try to complete as much of the assignment as possible, as only correct parts of the work count towards the 50\%. Failure to pass this mandatory assignment will automatically exclude a candidate from the final exam.}
+
+
+
+\bigskip
+\bigskip
+
+
+\textbf{Exercise 1 - The Cantor set}\\
+Let $C_0=[0,1]$. We build $C_{n+1}$ by induction by cutting each interval of $C_n$ into 3 equal parts (subintervals), and by keeping only the first and last subintervals. For instance, one finds
+$$C_1=\left[0,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right],\quad
+C_2=\left[0,\frac{1}{9}\right]\cup\left[\frac{2}{9},\frac{1}{3}\right]\cup\left[\frac{2}{3},\frac{7}{9}\right]\cup\left[\frac{8}{9},1\right].
+$$
+
+$(C_n)_n$ is then a decreasing sequence of sets, i.e. $C_{n+1}\subset C_n$, and the Cantor set is defined to be
+$$C=\bigcap_{n=0}^\infty C_n.$$
+It was introduced by Georg Cantor in 1883, and it is one of the most famous fractals.
+\begin{enumerate}
+\item Draw the first iterations of $C_n$, for $n=0,1,2,3,4$. Show that $C\neq \emptyset$.
+\item Show that $C$ is bounded and closed. Deduce that $C$ is compact by using the appropriate theorems.
+\item Given an interval $I=[a,b]$ (but this also work for intervals of the type $[a,b)$, $(a,b]$, $(a,b)$), we define the length of $I$ as $l(I)=b-a$. We extend this definition to a pairwise non-intersecting union of intervals (a set constructed as a union of intervals with no overlap) as the sum of the lengths of the subintervals. For instance, $l(C_1)=\frac{2}{3}$ and $l(C_2)=\frac{4}{9}$.
+Show that
+$$l(C_n)=\frac{2^{n}}{3^n}.$$
+\item
+Deduce that $l(C)=0$.
+\item Using the previous point, show that $C$ is not open. 
+
+[Hint: an open ball in $\R$ is an interval of the type $(a,b)$ for some $a,b\in\R$.]
+\item Show that $C$ does not contain any isolated point, or equivalently that all points of $C$ are limit points.
+\item Conclude that $C$ is perfect, thus uncountably infinite.
+\end{enumerate}
+
+
+\solution{
+
+}
+
+
+
+
+
+
+\bigskip
+
+
+
+\textbf{Exercise 2 - Cesàro sums and Cesàro summability}\\
+Let $(x_n)_n$ be a sequence in $\R$. The Cesaro mean of $(x_n)_n$ is defined to be the sequence
+$$S_n=\frac{x_0+\dots+x_n}{n+1}=\frac{1}{n+1} \sum_{k=0}^{n} x_k.$$
+A sequence $(x_n)_n$ is said to be summable in means if the sequence of $S_n$ as constructed above converges in $\R$.
+
+\begin{enumerate}
+\item Assume that $(x_n)_n$ converges to a limit $l\in \R$, that is,
+$$\forall \varepsilon>0 \quad \exists N\in\N \quad \text{s.t.} \quad  \forall n\geq N\quad \abs{x_n-l}< \varepsilon.$$
+Show that $(S_n)_n$ converges to $l$ as well, by doing the following:
+	\begin{enumerate}
+	
+	\item Show that
+	$$\abs{S_n-l}\leq \frac{\sum_{k=0}^n \abs{x_k-l}}{n+1}.$$
+	\item Let $\varepsilon>0$ and show that
+	$$\exists N_1\in\N \quad \text{s.t.} \quad \forall n\geq N_1 \quad \frac{1}{n+1} \sum_{k=N_1}^n \abs{x_k-l}< \frac{\varepsilon}{2}.$$
+	%[Hint: apply the definition of convergence to $(x_n)_n$ with $\frac{\varepsilon}{2}$.]
+	\item Let $\varepsilon>0$ and show that
+	$$\exists N_2\in\N\quad \text{s.t.} \quad \forall n\geq N_2\quad \frac{1}{n+1} \sum_{k=0}^{N_1-1} \abs{x_k-l}< \frac{\varepsilon}{2}.$$
+	%[Hint: the sequence $(\frac{c}{n})_n$ converges, whatever the constant $c$ is.]
+	\item Let $\varepsilon>0$ and use the first three points, with $N:=\max\{N_1, N_2\}$ to show that $(S_n)_n$ converges to $l$, i.e.
+	$$\exists N\in\N \quad \text{s.t.} \quad \forall n\geq N \quad |S_n-l|<\varepsilon.$$
+	\end{enumerate}
+\item Consider $x_n=(-1)^n$. Does $(x_n)_n$ converge? Does $(S_n)_n$ converge?
+\item Is it true that any sequence $(x_n)_n$ is summable in means, regardless of its convergence? Prove that all sequences are summable in means, or provide a counterexample of a non-convergent sequence that is also not summable in means.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+%\Tailperso
+ 
+\end{document}
+

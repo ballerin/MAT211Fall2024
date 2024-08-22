@@ -1,0 +1,151 @@
+% \textsc{}!TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 13}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title={*}]
+
+\begin{enumerate}
+	\item Let $f_n$ a sequence uniformly convergent to $f$. Show for $-\infty<a<b<\infty$ that  $$\displaystyle\lim_{n\rightarrow\infty} \int_{a}^{b} f_n=\int_a^b f$$  
+	\item What if the integral is over the whole real line? Give an example where $f_n$ converge uniformly to $f$ but $\displaystyle\lim_{n\to\infty}\int_{-\infty}^{\infty}f_n \neq \int_{-\infty}^{\infty}f$.
+\end{enumerate}
+\end{Exercise}
+\bigskip
+
+\begin{Exercise}[title={*}]
+Let $$\displaystyle I_n=\int_{1}^2 e^{-nx^2} dx.$$ Admit that directly computing $I_n$ is a challenging task, but that it is not difficult to compute the quantity $$\lim_{n\to\infty} I_n.$$
+\end{Exercise}
+\bigskip
+
+\begin{Exercise}[title={**$\dagger$}]
+\begin{enumerate}
+	\item Prove that the sequence of functions $$f_n=\frac{1}{x+n}$$ converges uniformly on intervals of the type $[0,b]$ for $b>0$.\\Does the same result hold for $[0,+\infty)$?
+	\item Prove that the sequence of functions $$f_n=\frac{nx}{nx+1}$$ converges pointwise but not uniformly on $[0,1]$.
+\end{enumerate}
+\end{Exercise}
+
+\bigskip
+
+\begin{Exercise}[title={**$\dagger$}]
+\begin{enumerate}
+	\item Prove that the series of functions $$\sum_1^{+\infty}\frac{\sin(nx)}{n^2}$$ converges absolutely and uniformly on $\mathbb{R}$.
+	\item Prove that the series of functions $$\sum_1^{+\infty}(-1)^n\frac{x^2+n}{n^2}$$ converges uniformly in every bounded interval (say any interval of the type $[a,b]$ with $a<b$) but does not converge absolutely for any value of $x$.
+\end{enumerate}
+\end{Exercise}
+
+\bigskip
+
+\begin{Exercise}[title={**}]
+Let
+$$f_n(x)=
+\begin{cases}
+	0&(x<\frac{1}{n+1})\\
+	(\sin\frac{\pi}{x})^2&(\frac{1}{n+1}\leq x \leq \frac{1}{n})\\
+	0&(\frac{1}{n}<x)\\
+\end{cases}$$
+
+be a sequence of functions defined for $n\geq 1$. Study the continuity of $f_n$. Show that the sequence $(f_n)_{n\in\mathbb{N}}$ converges pointwise to a continuous function. Show that however the convergence is only pointwise and not uniform.
+\end{Exercise}
+
+\bigskip
+\bigskip
+
+\begin{Exercise}[title={*}]
+Suppose $f\geq0$ is a continuous function on $[a,b]$. Show that $\int_a^b f(x)dx=0$ implies that $\forall x\in[a,b]\;\;f(x)=0$.
+
+\bigskip
+[Hint: proceed by contradiction]
+\end{Exercise}
+
+
+\bigskip
+
+\begin{Exercise}[title={**}]
+Let $f$ be a continuous function on $[0,1]$ and if $\forall n\in \mathbb{N}$
+$$\int_0^1 f(x) x^n dx =0$$
+and show that $f(x)=0$ on $[0,1]$.
+
+\bigskip
+
+[Hint: This means that the integral of $f$ multiblied by any polynomial is zero. Use the Stone-Weierstrass theorem to show that $\int_0^1 f^2(x)dx=0$]
+\end{Exercise}
+
+\end{document}
+

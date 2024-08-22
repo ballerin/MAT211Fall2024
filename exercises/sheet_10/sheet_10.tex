@@ -1,0 +1,189 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 10}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=*$\dagger$] Draw the graphs of the following functions and study the continuity and discontinuity on their domain:
+\begin{itemize}
+	\item[a)]{$f(x)=\sin\frac{\pi}{x}$ if $x\neq 0$ and $f(0)$ is arbitrary,}
+	\item[b)]{$f(x)=x\sin\frac{\pi}{x}$ if $x\neq 0$ and $f(0)=0$,}
+	\item[c)]{$f(x)=e^{-\frac{1}{x^2}}$,}
+	\item[d)]{$f(x)=\left\{\begin{array}{lllc}\frac{1}{n} \quad & \text{if}\quad & x=\frac{m}{n},\\
+			0 &\text{if}  & x\quad\text{is irrational}.\end{array}\right.
+		$}
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	 Is the sum of two functions $f(x)+g(x)$ discontinuous at $x_0$ if 
+\begin{itemize}
+	\item[a)]{the function $f$ is continuous but the function $g$ is discontinuous at $x_0$?}
+	\item[b)]{both of the functions $f$ and $g$ are discontinuous at $x_0$?}
+\end{itemize} Prove your result or construct counterexamples.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is the product of two functions $f(x)g(x)$ discontinuous at $x_0$ if 
+\begin{itemize}
+	\item[a)]{the function $f$ is continuous but the function $g$ is discontinuous at $x_0$?}
+	\item[b)]{both of the functions $f$ and $g$ are discontinuous at $x_0$?}
+\end{itemize} Prove your result or construct counterexamples.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Prove or disprove the uniform continuity of the following functions on the given sets.
+\begin{itemize}
+	\item[a)]{$f(x)=\ln x$ on $(0,1)$,}
+	\item[b)]{$f(x)=\frac{\sin x}{x}$ on $(0,\pi)$,}
+	\item[c)]{$f(x)=\sqrt x$ on $[1,+\infty)$,}
+\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Prove that the sum and product of two uniformly continuous functions defined on an interval $(a,b)$, $-\infty<a<b<+\infty$ are uniformly continuous on the same interval.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is it true that if $f(x)$ is differentiable on the open interval $(a,b)$, with $-\infty<a<b<+\infty$, and $$\lim_{x\to a}f^{\prime}(x)=\infty$$ then $$\lim_{x\to a}f(x)=\infty?$$ 
+
+[Hint: Consider the example $f(x)=\sqrt[3]{x}$ as $x\to 0$]
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Use the mean value theorems to show the following inequalities:
+\begin{itemize}
+	\item[a)]{$|\sin x-\sin y|\leq |x-y|$}
+	\item[b)]{$py^{p-1}(x-y)\leq x^p-y^p\leq px^{p-1}(x-y)$\ \  if $0<y<x$ and $p>1$}
+	\item[c)]{$\frac{a-b}{a}<\ln\frac{a}{b}<\frac{a-b}{b}$\ \  if $0<b<a$}
+\end{itemize} 
+\end{Exercise}
+
+\newpage
+
+\begin{Exercise}[title=**]
+	Use the derivative to show the following inequalities:
+\begin{itemize}
+	\item[a)]{$e^x>1+x$ if $x\neq 0$}
+	\item[b)]{$x-\frac{x^2}{2}<\ln(1+x)<x$ for $x>0$}
+	\item[c)]{$(x^a+y^a)^{\frac{1}{a}}>(x^b+y^b)^{\frac{1}{b}}$ for $x>0$, $y>0$, and $0<a<b$.}
+\end{itemize} 
+
+\bigskip
+
+[Hint: composition by monotonically increasing functions preserve inequalities]
+
+[Hint: if two functions have the same value at a point, what can we say from their derivatives?]
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+Write the Taylor polynomial of order 3 centered at point $x=1$ for the function $f(x)=\sqrt x$.
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+Recall the following definition:\\
+
+We say that $f(x)=o_{x\rightarrow \alpha}(g(x))$ if there exists a non-negative function $\epsilon$ and a neighborhood $U$ of $\alpha$ such that 
+$\varepsilon(x)\rightarrow 0$ when $x \rightarrow \alpha$ and $\forall x\in U \backslash  \{\alpha\}$, $|f(x)|=\varepsilon(x)|g(x)|$
+
+\begin{enumerate}
+	\item Show that $$\lim_{x\to \alpha} \frac{f(x)}{g(x)}=0$$ if $g(x)\neq 0$ in a neighborhood of $\alpha$ and $f(x)=o_{x\rightarrow \alpha}(g(x))$
+	
+	\item Show that for a function $f:\R\to\R$ which is continuously differentiable $n+1$ times then
+	$$ f(x) = P_n^\alpha[f](x) + o((x-\alpha)^n)$$
+	for $x\to a$ when $P_n^\alpha[f]$ is the Taylor polynomial of degree $n$ centered in $\alpha$.
+	
+	[Hint: use Taylor's theorem as done in class, with the explicit formula for the remainder. This statemenent is called Taylor's theorem with remainder in Peano's form]
+	
+	\item Rewrite the previous point in the specific case when $\alpha=0$
+
+\item Use the appropriate Taylor series and little-o notation to compute the following limits, exploiting the previous points of this exercise:
+\begin{enumerate}
+	\item $$\lim_{x\rightarrow 0} \frac{cosx-1}{x^2}=-\frac{1}{2}$$
+	\item $$\lim_{x\rightarrow 0} \frac{\ln(1-x^2)}{x^2} = -1$$
+	\item $$\lim_{x\rightarrow 0} \frac{e^{x^2}-x^2-1}{x^4}= \frac{1}{2}$$
+	\item $$\lim_{x\rightarrow 0^+} \frac{cos(\sqrt{x})-1}{2x}=-\frac{1}{4}$$
+\end{enumerate}
+\item
+How does this method compare to l'Hospital's rule?
+\end{enumerate}
+\end{Exercise}
+
+\end{document}
+

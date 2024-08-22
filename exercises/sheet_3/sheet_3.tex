@@ -1,0 +1,144 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 3}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title=**$\dagger$]
+	Show that for a sequence $(x_n)_n$ the following are equivalent:
+	\begin{enumerate}
+		\item the sequence $(x_n)_n$ converges
+		\item all subsequences of $(x_n)_n$ converge
+	\end{enumerate}
+	
+	What if we replace the second condition by with "all proper subsequences of $(x_n)_n$ converge", where a proper subsequence is a subsequence of $(x_n)_n$ which is not $(x_n)_n$ itself. What if we replace the second condition by "at least one subsequence of $(x_n)_n$ converges"?
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Show that in $\mathbb{R}$ a sequence converges if and only if it has the Cauchy property.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Show that every sequence contains a monotone subsequence. Explain why this gives us a new proof for Bolzano-Weierstrass in the case of a bounded sequence.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Prove the following statements for $n\in \mathbb{N}$ and $x,p\in\mathbb{R}$:
+	\begin{enumerate}
+		\item[i)]{If $p>0$, then $$\lim\limits_{n\to\infty}\frac{1}{n^p}=0$$}
+		\item[ii)]{If $p>0$, then $$\lim\limits_{n\to\infty}\sqrt[n]{p}=1$$}
+		\item[iii)]{If $|x|<1$, then $$\lim\limits_{n\to\infty}x^n=0$$}
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Let $a,b\in\R^n$ so that $a=(a_1,\ldots, a_n)$ and $b=(b_1,\ldots, b_n)$, where $a_k$ and $b_k$ are real numbers. Revise the proof of the Cauchy-Bunyakovsky-Schwarz inequality 
+	$$
+	\Big(\sum_{k=1}^{n}a_kb_k\Big)^2\leq \Big(\sum_{k=1}^{n}a_k^2\Big)\cdot\Big(\sum_{k=1}^{n}b_k^2\Big).
+	$$
+	Under what conditions is it actually an equality rather than an inequality?
+	\bigskip
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Let $a=(a_1,\ldots, a_n)$ and $b=(b_1,\ldots, b_n)$, where $a_k$ and $b_k$ are real numbers. Revise the proof of the Cauchy-Bunyakovsky-Schwarz inequality 
+	$$
+	\Big(\sum_{k=1}^{n}a_kb_k\Big)^2\leq \Big(\sum_{k=1}^{n}a_k^2\Big)\cdot\Big(\sum_{k=1}^{n}b_k^2\Big).
+	$$
+	Under what conditions is it actually an equality rather than an inequality?
+	\bigskip
+	
+	\noindent {\bf 7)**} Prove the Minkowskii inequality: $$\Big(\sum_{k=1}^{n}(a_k+b_k)^2\Big)^{1/2}\leq\Big(\sum_{k=1}^{n}a_k^2\Big)^{1/2}+\Big(\sum_{k=1}^{n}b_k^2\Big)^{1/2}
+	$$ 
+	by making use the Cauchy-Bunyakovsky-Schwarz inequality. This gives us the triangle inequality $\|\mathbf a+\mathbf b\|\leq\|\mathbf a\|+\|\mathbf b\|$ for vectors in $\mathbb R^n$, where $\mathbf a=(a_1,\ldots,a_n)$, $\mathbf b=(b_1,\ldots,b_n)$ and $\|\mathbf a\|=\Big(\sum_{k=1}^{n}a_k^2\Big)^{1/2}$.
+	\bigskip
+\end{Exercise}
+
+\begin{Exercise} [title=*$\dagger$]
+	Using the definition show that the following spaces are metric spaces, i.e. show that the three axioms of a metric space hold:
+	\begin{enumerate}
+		\item $(\R,d)$ where $d(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
+		\item $(\mathbb Z,d)$ where $d(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
+		\item $(\R^n,d)$ for $n\in\N$, $n\geq 2$, where $d(x,y)=\lVert x-y\rVert$ and $\lVert \cdot\rVert$ is the norm of a vector.
+		\item $(\R,d)$ where $d(x,y)=1$ if $x=y$ and $d(x,y)=0$ if $x\neq y$.
+	\end{enumerate}
+\end{Exercise}
+
+\end{document}
+

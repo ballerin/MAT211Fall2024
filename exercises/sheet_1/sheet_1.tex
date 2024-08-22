@@ -1,0 +1,187 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 1}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+Learning by doing is a necessary part of studying math. Spending some extra time dealing with difficult exercises might seem not appealing, but is the best way to make sure the contents of the course have been properly understood. The exam will be oral and the aim of the examiners is to assess how comfortably and effectively you deal with the topics discussed in class and at the group sessions. \textbf{An important aspect of the evaluation is the ability to present a proof with rigor and precision.}
+\bigskip
+
+Solving these exercises is strongly recommended but not mandatory. It is also recommended that the students have already spent time on the exercises prior to the group session, and show up with a partial solution or an honest attempt.
+\bigskip
+
+The difficulty of the exercises is expressed by *, ** and ***. The symbol $\dagger$ is used to point out exercises that are considered particularly important for the curriculum (and for the exam).
+
+\begin{Exercise}[title=*]
+	\begin{enumerate}[label={\alph*)}]
+		\item Assume that the PRODUCT of two integers $x$ and $y$ is even. Show that at least one of the numbers is even.
+		\item Assume that the SUM of two integers $x$ and $y$ is even. Show that $x$ and $y$ are either both even or both odd.
+	\end{enumerate}
+	
+\end{Exercise}	
+
+\begin{Exercise}[title=*]
+	Show that if $n$ is a natural number such that $n^2$ is divisible by 3, then $n$ is also divisible by 3. Use this to show that $\sqrt 3$ is irrational.
+\end{Exercise}
+
+\newpage
+\begin{Exercise}[title=*]
+	Where does the proof of $\sqrt 2$ and $\sqrt 3$ being irrational fails in showing that $\sqrt{4}$ is irrational?
+\end{Exercise}
+
+
+\begin{Exercise}[title=*]
+	\begin{enumerate}[label={\alph*)}]
+		\item Show that id $r,s$ are rational numbers, so are $r+s$, $r-s$, $rs$, and (provided $s\neq0$) $\frac{r}{s}$.
+		\item Let $r$ be a rational number and $x$ an irrational number. Show that $r+x$ and $r-x$ are irrationals. Show also that if $r\neq0$ then $r\cdot x$, $\frac{r}{x}$, and $\frac{x}{r}$ are irrational. 
+		\item Show by examples that if $a,b$ are irrational numbers, then $a+b$ and $a\cdot b$ can be either rational or irrational.
+		\item Show that $\sqrt{3}+\sqrt{5}$ is irrational.
+	\end{enumerate}
+	
+	[Hint: if $\sqrt{3}+\sqrt{5}$ were rational then its square would be rational as well]
+	\bigskip
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Show that $[0,2]\cup [1,3] = [0,3]$ and that $[0,2]\cap [1,3] = [1,2]$.
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	\begin{enumerate}[label={\alph*)}]
+		\item Show the remaining part of Proposition 1.2.1 of Lindstrøm.
+		\item Show the remaining part of Proposition 1.2.2 of Lindstrøm.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Let $f:A\to B$ be a function and $x,y\in A$. Show that the two definitions of function being injective are equivalent: 
+	\begin{enumerate}[label={\alph*)}]
+		\item $x\neq y \implies f(x)\neq f(y)$
+		\item $f(x)=f(y) \implies x=y$
+	\end{enumerate}
+	[Hint: proceed by contradiction]
+\end{Exercise}
+\newpage
+
+\begin{Exercise}[title=**]
+	\begin{enumerate}[label={\alph*)}]
+		\item Extend the distributive law to arbitrary families, i.e.
+		\[B\cap(\bigcup_{A\in\mathcal{A}}A) = \bigcup_{A\in\mathcal{A}}(B\cap A)\]
+		\[B\cup(\bigcap_{A\in\mathcal{A}}A) = \bigcap_{A\in\mathcal{A}}(B\cup A)\]
+		\item Extend De Morgan's laws to arbitrary families, i.e.
+		\[(\bigcup_{A\in\mathcal{A}}A)^c = \bigcap_{A\in\mathcal{A}} A^c\]
+		\[(\bigcap_{A\in\mathcal{A}}A)^c = \bigcup_{A\in\mathcal{A}} A^c\]
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	Show that for two real numbers $a,b\in\mathbb R$, then $a=b$ if and only if ($\iff$) $\forall \varepsilon>0$ $|a-b|<\varepsilon$.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Show that a strictly increasing function $f:\mathbb R \to \mathbb R$, i.e. $a>b \implies f(a)>f(b)$, is injective. Are all such functions also surjective? (prove it or show a counterexample)
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Show that the composition of bijective functions is bijective. In particular:
+	\begin{enumerate}[label={\alph*)}]
+		\item Show that the composition of injective functions is injective.
+		\item Show that the composition of surjective functions is surjective.
+		\item Deduce that the composition of bijective functions is bijective.
+		\item Show that if $f$ and $g$ are bijective then $(g\circ g)^{-1}=f^{-1}\circ g^{-1}$
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Let $X,Y$ be non-empty sets and consider a function $f:X\to Y$.
+	\begin{enumerate}[label={\alph*)}]
+		\item Show that if $B\subseteq Y$, then $f(f^{-1}(B))=B$.
+		\item Show that if $A\subseteq X$, then $A\subseteq f(f^{-1}(B))$.
+		\item Find a counterexample for point (b) for which $A\neq f(f^{-1}(B))$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Let $m\in \mathbb N$ be a natural number. Define a relation $\equiv$ on the integers $\mathbb Z$ by
+	\[x\equiv y\iff x-y\text{ is divisible by }m.\]
+	Show that $\equiv$ is an equivalence relation on $\mathbb Z$. How many equivalence classes are there for a given $m$? What do they look like?
+\end{Exercise}
+
+\end{document}
+

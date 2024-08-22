@@ -1,0 +1,318 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[a4paper]{geometry}
+\usepackage[english]{babel}
+\usepackage{xspace}
+\usepackage{amsmath, amssymb}
+\usepackage{mathrsfs,amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{stmaryrd}
+\usepackage[font=small]{caption}
+\usepackage{hyperref}
+\usepackage[toc,page]{appendix}
+\usepackage{import} %pour importer les chapitres%
+\usepackage{dsfont} %pour faire les jolis indicatrices%
+\usepackage{mathabx} %pour les normes triples%
+\usepackage{fancybox} %pour entourer%
+\usepackage{fancyhdr} %pour les en-têtes et pieds de pages%
+%\usepackage[all]{xypic} %pour les diagrammes commutatifs%
+\usepackage{color} %pour les boîtes colorées%
+\usepackage{enumerate}
+\usepackage{tikz-cd}
+\usepackage{subfigure}
+
+\newcommand\iu{{\mathchoice{\hbox{\rm i}}{\hbox{\rm i}}%
+        {\hbox{\rm \scriptsize i}}{\hbox{\rm \tiny i}}}}
+        
+        
+\newcommand{\abs}[1]{\left\vert #1\right\vert}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\cA{{\cal A}}\def\cB{{\cal B}}\def\cC{{\cal C}}\def\cD{{\cal D}}
+\def\cE{{\cal E}}\def\cF{{\cal F}}\def\cG{{\cal G}}\def\cJ{{\cal J}}
+\def\cI{{\cal I}}\def\cP{{\cal P}}\def\cR{{\cal R}}\def\cU{{\cal U}}
+\def\cM{{\cal M}}\def\cN{{\cal N}}\def\cH{{\cal H}}\def\cS{{\cal S}}
+\def\cT{{\cal T}}\def\cU{{\cal U}}\def\cV{{\cal V}}\def\cW{{\cal W}}
+\def\cX{{\cal X}}\def\cY{{\cal Y}}\def\cZ{{\cal Z}}
+
+\def\bfA{{\bf A}}\def\bfB{{\bf B}}\def\bfC{{\bf C}}\def\bfD{{\bf D}}
+\def\bfE{{\bf E}}\def\bfF{{\bf F}}\def\bfG{{\bf G}}\def\bfH{{\bf H}}
+\def\bfI{{\bf I}}\def\bfJ{{\bf J}}\def\bfK{{\bf K}}\def\bfL{{\bf L}}
+\def\bfM{{\bf M}}\def\bfN{{\bf N}}\def\bfO{{\bf O}}\def\bfP{{\bf P}}
+\def\bfQ{{\bf Q}}\def\bfR{{\bf R}}\def\bfS{{\bf S}}\def\bfT{{\bf T}}
+\def\bfU{{\bf U}}\def\bfV{{\bf V}}\def\bfW{{\bf W}}\def\bfX{{\bf X}}
+\def\bfY{{\bf Y}}\def\bfZ{{\bf Z}}
+        
+\def\bfa{{\bf a}}\def\bfb{{\bf b}}\def\bfc{{\bf c}}\def\bfd{{\bf d}}
+\def\bfe{{\bf e}}\def\bff{{\bf f}}\def\bfg{{\bf g}}\def\bfh{{\bf h}}
+\def\bfi{{\bf i}}\def\bfj{{\bf j}}\def\bfk{{\bf k}}\def\bfl{{\bf l}}
+\def\bfm{{\bf m}}\def\bfn{{\bf n}}\def\bfo{{\bf o}}\def\bfp{{\bf p}}
+\def\bfq{{\bf q}}\def\bfr{{\bf r}}\def\bfs{{\bf s}}\def\bft{{\bf t}}
+\def\bfu{{\bf u}}\def\bfv{{\bf v}}\def\bfw{{\bf w}}
+
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\beqs{\[}
+\def\eeqs{\]}
+\def\beqa{\begin{eqnarray}}
+\def\eeqa{\end{eqnarray}}
+\def\beqas{\begin{eqnarray*}}
+\def\eeqas{\end{eqnarray*}}
+
+\def\dsty{\displaystyle}
+\def\tsty{\textstyle}
+\def\ssty{\scriptstyle}
+
+\def\d{\partial}
+\def\O{\Omega}
+\def\vec{\underline}
+
+%\def\phi{\varphi}                
+\def\epsilon{\varepsilon}
+%\def\theta{\vartheta}              
+
+\def\blockdiag{\mathop{\rm blockdiag}\nolimits}
+\def\cond{\mathop{\rm cond}\nolimits}
+\def\diag{\mathop{\rm diag}\nolimits}
+\def\diam{\mathop{\rm diam}\nolimits}
+\def\dim{\mathop{\rm dim}\nolimits}
+\def\dist{\mathop{\rm dist}\nolimits}
+\def\infsup#1#2{\mathop{\rm inf\vphantom{p}}_{#1}\sup_{#2}}
+\def\mod{\mathop{\rm mod}\nolimits}
+\def\sp{\mathop{\rm span}\nolimits}
+\def\supp{\mathop{\rm supp}\nolimits}
+\def\e{\mathop{\rm e}\nolimits}
+\def\spur{\mathop{\rm spur}}
+\def\Im{\mathop{\rm Im}}
+\def\Re{\mathop{\rm Re}}
+\def\arctan{\mathop{\rm arctan}}
+\def\arg{\mathop{\rm arg}}
+
+\newcommand{\norme}[1]{\left\Vert #1\right\Vert}
+
+\def\note#1{\marginpar{\makebox[0pt][l]{\bf #1}}}
+
+\newcommand{\A}{\ensuremath{\mathbb{A}}\xspace}
+\newcommand{\B}{\ensuremath{\mathbb{B}}\xspace}
+\newcommand{\C}{\ensuremath{\mathbb{C}}\xspace}
+\newcommand{\D}{\ensuremath{\mathbb{D}}\xspace}
+\newcommand{\E}{\ensuremath{\mathbb{E}}\xspace}
+\newcommand{\F}{\ensuremath{\mathbb{F}}\xspace}
+\newcommand{\G}{\ensuremath{\mathbb{G}}\xspace}
+\renewcommand{\H}{\ensuremath{\mathbb{H}}\xspace}
+\newcommand{\I}{\ensuremath{\mathbb{I}}\xspace}
+\newcommand{\J}{\ensuremath{\mathbb{J}}\xspace}
+\newcommand{\K}{\ensuremath{\mathbb{K}}\xspace}
+\renewcommand{\L}{\ensuremath{\mathbb{L}}\xspace}
+\newcommand{\M}{\ensuremath{\mathbb{M}}\xspace}
+\newcommand{\N}{\ensuremath{\mathbb{N}}\xspace}
+\renewcommand{\O}{\ensuremath{\mathbb{O}}\xspace}
+\renewcommand{\P}{\ensuremath{\mathbb{P}}\xspace}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}\xspace}
+\newcommand{\R}{\ensuremath{\mathbb{R}}\xspace}
+\renewcommand{\S}{\ensuremath{\mathbb{S}}\xspace}
+\newcommand{\T}{\ensuremath{\mathbb{T}}\xspace}
+\newcommand{\U}{\ensuremath{\mathbb{U}}\xspace}
+\newcommand{\V}{\ensuremath{\mathbb{V}}\xspace}
+\newcommand{\W}{\ensuremath{\mathbb{W}}\xspace}
+\newcommand{\X}{\ensuremath{\mathbb{X}}\xspace}
+\newcommand{\Y}{\ensuremath{\mathbb{Y}}\xspace}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}\xspace}
+
+\renewcommand{\AA}{\ensuremath{\mathcal{A}}\xspace}
+\newcommand{\BB}{\ensuremath{\mathcal{B}}\xspace}
+\newcommand{\CC}{\ensuremath{\mathcal{C}}\xspace}
+\newcommand{\DD}{\ensuremath{\mathcal{D}}\xspace}
+\newcommand{\EE}{\ensuremath{\mathcal{E}}\xspace}
+\newcommand{\FF}{\ensuremath{\mathcal{F}}\xspace}
+\newcommand{\GG}{\ensuremath{\mathcal{G}}\xspace}
+\newcommand{\HH}{\ensuremath{\mathcal{H}}\xspace}
+\newcommand{\II}{\ensuremath{\mathcal{I}}\xspace}
+\newcommand{\JJ}{\ensuremath{\mathcal{J}}\xspace}
+\newcommand{\KK}{\ensuremath{\mathcal{K}}\xspace}
+\newcommand{\LL}{\ensuremath{\mathcal{L}}\xspace}
+\newcommand{\MM}{\ensuremath{\mathcal{M}}\xspace}
+\newcommand{\NN}{\ensuremath{\mathcal{N}}\xspace}
+\newcommand{\OO}{\ensuremath{\mathcal{O}}\xspace}
+\newcommand{\PP}{\ensuremath{\mathcal{P}}\xspace}
+\newcommand{\QQ}{\ensuremath{\mathcal{Q}}\xspace}
+\newcommand{\RR}{\ensuremath{\mathcal{R}}\xspace}
+\renewcommand{\SS}{\ensuremath{\mathcal{S}}\xspace}
+\newcommand{\TT}{\ensuremath{\mathcal{T}}\xspace}
+\newcommand{\UU}{\ensuremath{\mathcal{U}}\xspace}
+\newcommand{\VV}{\ensuremath{\mathcal{V}}\xspace}
+\newcommand{\WW}{\ensuremath{\mathcal{W}}\xspace}
+\newcommand{\XX}{\ensuremath{\mathcal{X}}\xspace}
+\newcommand{\YY}{\ensuremath{\mathcal{Y}}\xspace}
+\newcommand{\ZZ}{\ensuremath{\mathcal{Z}}\xspace}
+
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\Trace}{Tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Div}{div}
+\DeclareMathOperator{\Rot}{rot}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\PSO}{PSO}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\PSU}{PSU}
+\DeclareMathOperator{\Or}{O}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\Diag}{diag}
+\DeclareMathOperator{\Com}{com}
+\DeclareMathOperator{\Car}{car}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\mat}{mat}
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\GA}{GA}
+\DeclareMathOperator{\Aff}{Aff}
+\DeclareMathOperator{\EGZ}{EGZ}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Res}{Res}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\vp}{vp}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\Conv}{Conv}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Real}{Re}
+\DeclareMathOperator{\Imag}{Im}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% eps
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\epsfigure{\futurelet\epsfL\epsfD}
+\def\epsfD{\ifx\epsfL [ \let\next=\epsfsc \else \let\next=\epsf \fi \next}
+
+\def\epsf#1#2#3{\begin{figure}[t]\begin{center}\leavevmode%
+\epsfbox{#2}\caption{#3}\label{#1}\end{center}\end{figure}}
+
+\def\epsfsc[#1]#2#3#4{\begin{figure}[t]\begin{center}\leavevmode%
+\resizebox{#1}{!}{\epsfbox{#3}}\caption{#4}\label{#2}\end{center}\end{figure}}
+%\epsfxsize=#1\epsfbox{#3}\caption{#4}\label{#2}\end{center}\end{figure}}
+
+\def\epssketch#1{\leavevmode\epsfbox{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% setup                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hoffset -0.9 true cm
+\voffset -2.0 true cm
+\textwidth163mm \textheight236mm
+%\renewcommand{\labelenumi}{(\alph{enumi})}
+\pagestyle{plain}
+%\setlength{\parindent}{2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tutorial                            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% exercises environement with counter
+\newcounter{exo}
+\renewcommand\theexo{\arabic{exo}}
+%\newenvironment{exo}[2][]
+%{\par\refstepcounter{exo}\medskip\noindent\textbf{Exercice \theexo #2}\space (\textit{#1})\par\noindent}
+%{\par}
+
+\ExplSyntaxOn
+    \NewDocumentEnvironment{exo} {O{}m}
+     {
+      \refstepcounter{exo}\medskip\noindent\textbf{Exercice~\theexo #2 }
+      \IfNoValueTF{#1} {  }{ ~(\textit{#1}) }
+       \par\noindent
+     }
+     {\par}
+\ExplSyntaxOff
+
+
+%\nofiles
+
+\newcommand{\Serie}[2]{{\bf Série \,#1}\vspace{3mm}}
+
+%\newcounter{iexercise}
+%\newenvironment{exercise}[1]{%
+%\stepcounter{iexercise}
+%\noindent {\underline{\arabic{iexercise}.} #1}
+%\begin{list}{}{}\item[]\sloppypar
+%}{%
+%\end{list}
+%}
+
+\newcommand{\Head}[2]{%
+\setcounter{isolution}{0}
+\noindent 
+Méthodes numériques géométriques et raides pour les ED \hfill  #2\\
+Enseignant: G. Vilmart \quad Assistant: A. Laurent \hfill Université de Genève 
+\vskip2ex
+\hrule
+\vskip2ex
+\vskip2ex
+\begin{center}\large\bf Série #1
+\if\outputtype c % if corrections
+(Corrigé)
+\fi
+\end{center}
+\vskip2ex
+}
+
+%\newcommand{\NextPage}[1]{%
+%%\setcounter{isolution}{0}
+%\noindent Numerik der Partiellen Differentialgleichungen\hfill Mathematik, WS 2003\\
+%Prof.~A.~Abdulle \hfill Universit\"at Basel
+%\vskip2ex
+%\hrule
+%\vskip2ex
+%\vskip2ex
+%\begin{center}\large\bf Série #1: Fortsetzung\end{center}
+%\vskip2ex
+%}
+%
+%
+%
+%\newcommand{\LsgHead}[1]{%
+%\setcounter{isolution}{0}
+%\begin{center}\large\bf L\"osungen zur Serie #1\end{center}
+%\vskip2ex
+%}
+
+\newcounter{isolution}
+\if\outputtype c % if corrections
+\newcommand{\solution}[1]{%
+{\noindent {\bfseries \itshape Sol.:} \itshape #1}
+}
+\fi
+\if\outputtype s % if serie
+\newcommand{\solution}[1]{}
+\fi
+
+
+
+
+\newcommand{\Tail}[1]{%
+\vfill			%setzt Tail an unteren Blattrand
+\vskip2ex\noindent
+%{\bf WWW:}
+\hrule
+\vskip2ex\noindent
+{\small
+* exercices fondamentaux, ** compléments de cours (résultats à retenir), *** pour aller plus loin.\\
+Informations générales, séries, voir \url{https://moodle.unige.ch/course/view.php?id=5641}}
+\vskip2ex\noindent
+%{\bf Abgabe:} #1 
+\vskip2ex
+}
+
+

@@ -1,0 +1,146 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 5}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise} [title=**$\dagger$]
+	Let $(X,d)$ be a metric space.
+\begin{enumerate}
+	\item Let $x_n\in X$ be a sequence converging to $l$ such that $\forall n$ $x_n\neq l$, prove $$E:=\{x_n| n\in\mathbb{N} \}$$ is non closed.
+	\item Prove $E\cup \{l\}$ is closed and compact.
+	\item Let $(x_n)_{n\in\mathbb{N}}\in [0,1]$ be any sequence (might even not converge). Prove that there exists a subsequence of $(x_n)_{n\in\mathbb{N}}$ that converges in $[0,1]$.
+\end{enumerate}
+\smallskip
+[Hint: by bisection argument, if the interval is cut in half then either a countable amount of points is in the first half or it is in the second half...]
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
+	We say that a subset $E$ of a metric space $(X,d)$ is dense in $X$ if every point of $X$ is a limit point of $E$. Show that $\Q$ is dense in $\R$ with the Euclidean metric.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+Let $(\mathbb{Q},d)$, with $d(x,y)=|x-y|$ be a metric space. Let $E:=\{ p\in\mathbb{Q}| 2<p^2<3 \}$. Prove $E$ is closed and bounded in $\mathbb{Q}$, but not compact. Is $E$ open in $\mathbb{Q}$?
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+We say a metric space is \emph{separable} if it contains a subset that is both dense and countable (or finite). Show that $\mathbb R$ is separable. Is $\mathbb R^n$ separable?
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Recall the Nested Interval Property for $\R^1$, i.e. in $(\mathbb R^1,|\cdot|)$ for any sequence of closed non-empty intervals $(I_n)_{n}$ such that $I_n\supset I_{n+1}$, $\forall n\in\N$ the intersection $\cap_{n=1}^{\infty}I_n$ is not empty (will contain at least a point). Is the same true for the metric space $(\mathbb R^1,d)$, where $d(x,y)=\frac{|x-y|}{1+|x-y|}$, that any decreasing sequence of closed and bounded sets has non empty intersection? Why (prove) or why not (provide a counterexample)?
+	
+	[Hint: since the metric changes, the way open balls are defined could (potentially) change as well, thus changing what closed set are. Does this really happen?]
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Let $\Q$ endowed with the Euclidean distance be the metric space of interest.
+	
+	Is the closed ball, for $r\in\R$,
+\[
+\overline{B_d(0,q)}=\{q\in{\mathbb Q}\,|\,|q|\leq r\}\subset{\mathbb Q}
+\]
+a compact set?
+
+
+[Hint: It is clearly closed in ${\mathbb Q}$ and bounded, however we cannot use Heine-Borel. It might also be useful to divide the cases $r\in\Q$ and $r\in\R\backslash\Q$]
+\end{Exercise}
+
+\begin{Exercise} [title=**]
+	The SNCF/VY metric:
+	 
+	The \emph{ Société nationale des chemins de fer français} is the French national railway company. It is known to have one big hub in Paris to which all other cities connect to so that if one wants to travel between two cities in France, they have to travel through Paris on the way. The same thing is true with the Norwegian VY, where every trip has to go through Oslo.
+	
+	One can model such topological space in the following way:
+	Let $d$ be the usual metric on $\mathbb{R}^2$. We define the metric $d'$ by 
+	$$
+	d'(x,y)=\begin{cases}d(x,y)& \text{ if } x=\lambda y\\ d(x,0)+d(y,0) &\text{ if not } \end{cases}
+	$$ 
+	\begin{enumerate}
+		\item Prove that $d'$ is a metric. Describe the open ball $B(x,r)$ for $d'$.
+		\item Are the two metrics $d$ and $d'$ equivalent?
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	As we have already seen $d(x,y)=\lvert x^2-y^2 \rvert$ is not a distance because $d(-1,1)=0$ and $1\neq-1$. For which functions $f:\mathbb R\rightarrow\mathbb R$ is the function $d(x,y)=\lvert f(x)-f(y) \rvert$ a distance?
+\end{Exercise}
+
+\end{document}
+

@@ -1,0 +1,141 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 9}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title={**$\dagger$}]
+	Revise theorem 3.55 of Rudin. Let $\sum_{n=0}^{\infty}a_n$ be a series of complex numbers which converges absolutely. Show that every rearrangement also converges and it does converge to the same sum. 
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Let $(X,d)$ be a metric space and $E\subset X$. Let $f:E\to\mathbb{R}$ be a function. We say that $f(t)\to A$ as $t\to x$, where $t,x\in\overline\R$ are numbers of the extended real line ($\R\cup\{-\infty,+\infty\}$), if for every neighborhood $U$ of $A$ there is a neighborhood $V$ of $x$ such that $V\cap E$ is not empty and such that $f(t)\in U$ for all $t\in V\cap E$. Define any interval $(c,+\infty)$ for $c\in\R$ to be a neighborhood of $+\infty$, and  $(-\infty,c)$ to be a neighborhood of $-\infty$.
+	
+	Check that this new definition of limit of a function corresponds to the usual one when $A,x\in \R$.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Revise Theorem 4.20 of Rudin, i.e. that in a noncompact subset of $\R$, either bounded or unbounded, there exists:
+	\begin{enumerate}
+		\item a continuous function that is not bounded
+		\item a continuous function that is bounded but has no maximum
+		\item a continuous function that is not uniformly continuous when $E$ is bounded 
+	\end{enumerate}
+	
+	In addition show that there are choices for $E$ unbounded such that all continuous functions are also uniformly continuous.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Revise Theorem 4.22 of Rudin, i.e. that $f(E)$ is connected whenever $f:E\to Y$, for $E\subset X$ a connected set, is a continuous map between metric spaces.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Can a monotonic function admit a discontinuity of the second kind? Provide an example or argue that it is not possible.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Revise Theorem 4.30 of Rudin, i.e. that a monotonic real function defined on $(a,b)$ has at most countably many discontinuities of the first kind. Can you come up with a function that is monotonic in $(a,b)$ and has a countably infinite number of discontinuities?
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+For each of the following real-valued functions of a real variable give a well written $\epsilon-\delta$ proof of the claim
+\begin{enumerate}
+	\item $$\lim_{x\rightarrow 1} x = 1$$
+	\item $$\lim_{x\rightarrow 2} x^2+3 = 7$$
+	\item $$\lim_{x\rightarrow 1} \frac{x^2-1}{x-1} = 0$$
+	\item $$\lim_{x\rightarrow 0} e^x = 1$$
+\end{enumerate}
+
+\end{Exercise}
+
+\begin{Exercise}[title=***$\dagger$]
+Suppose $f,g:\mathbb R \rightarrow \mathbb R $ are well defined real valued functions such that $\lim_{x\rightarrow a} f(x) =K$ and $\lim_{x\rightarrow a} g(x) = L$ exist. Let $c\in\mathbb R$ be a constant. Prove the following claims: 
+\begin{enumerate}
+	\item $$\lim_{x\rightarrow a} cf(x) = c \lim_{x\rightarrow a} f(x) = cK$$
+	\item $$\lim_{x\rightarrow a} f(x) + g(x) = \lim_{x \rightarrow a} f(x) + \lim_{x \rightarrow a} g(x) = K+L$$
+	\item $$\lim_{x\rightarrow a} f(x) \cdot g(x) = \lim_{x \rightarrow a} f(x) \cdot \lim_{x \rightarrow a} g(x) = K\cdot L$$
+	\item If $L\neq0$ then
+	$$\lim_{x\rightarrow a} \frac{f(x)}{g(x)} = \frac{\lim_{x \rightarrow a} f(x) }{ \lim_{x \rightarrow a} g(x)} = \frac{K}{L}$$
+	\item For $n\in\mathbb{N}$ $$\lim_{x\rightarrow a} [f(x)]^n = [\lim_{x\rightarrow a} f(x)]^n=K^n$$
+\end{enumerate}
+\end{Exercise}
+
+
+\end{document}
+

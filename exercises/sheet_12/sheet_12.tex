@@ -1,0 +1,152 @@
+% \textsc{}!TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 12}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+\begin{Exercise}[title={*}]
+	Let us show that the converse of Theorem 7.10 of Rudin (where 7.10 is also known as the Weierstrass M-test) does not hold. It is clear that if $\sum f_n$ converges uniformly and $(M_n)_n$ defined as we please s.t. $\lvert f_n(x)\rvert \leq M_n$ then $\sum M_n$ does not need to converge (if we take $M_n$ to be a constant w.r.t $n$ then the sum clearly diverges to $+\infty$). Show that this could happen also when $M_n:= \sup_{x\in E} \lvert f_n(x)\rvert$, i.e. by taking the smallest possible values for $M_n$ s.t. $\lvert f_n(x)\rvert \leq M_n$.
+	
+	\bigskip
+	
+	[Hint: consider $f_n (x) = \frac{1}{n} \chi_{(n-1,n)}(x)$ where $\chi$ is the indicator function that assumes value $1$ when $x$ is in the specified set, and $0$ otherwise]
+\end{Exercise}
+
+\begin{Exercise}[title={***}]
+
+
+In this exercise we will show that there exists a function that is continuous but nowhere differentiable.
+
+Let $$\phi(x)=\vert x\rvert\;\;\;\;x\in[-1,1]$$
+and extend it to all reals $x\in\R$ by imposing
+$$\phi(x+2) = \phi(x).$$
+Then define $f(x)$ as 
+$$f(x)=\sum_{n=0}^{\infty}\left(\frac{3}{4}\right)^n\phi(4^n x).$$
+Proceed as follows:
+\begin{enumerate}
+	\item Show that $\rvert\phi(s)-\phi(t)\lvert \leq \lvert s-t \rvert$.
+	\item Show that $\phi$ is continuous.
+	\item Find a bound $M_n$ for $\left(\frac{3}{4}\right)^n\phi(4^n x)$ s.t. $\sum_{n=0}^{\infty}M_n$ converges.
+	\item show that the series of $f$ converges uniformly so that $f$ is continuous.
+	\item Fix $x\in\R$ and introduce the quantity $\delta_m = \frac{1}{2}4^{-m}$ or $\delta_m = -\frac{1}{2}4^{-m}$, where the sign is chosen so that no integer lies between the numbers $4^m x$ and $4^m (x+\delta_m)$. Explain why we can do this.
+	\item Show that when $n>m$ then $4^n\delta_m$ is an even integer
+	\item Introduce the quantity $$\gamma_n = \frac{\phi(4^n(x+\delta_m))-\phi(4^n x)}{\delta_m}$$ which depends on $m$. Show that for $n>m$ then $\gamma_n=0$, that for $n=m$ then  $\lvert\gamma_n\rvert=4^n$, and that for $n<n$ then  $\lvert\gamma_n\rvert\leq4^n$.
+	\item Show that for a sequence $a_n$ s.t. $\lvert a_n\rvert\leq1$ and $\lvert a_m\rvert =1$ then $$\left\lvert\sum_{n=0}^m 3^n a_n\right\rvert \geq 3^m - \sum_{n=0}^{m-1} 3^n$$
+	\item Show that $$3^m - \sum_{n=0}^{m-1} 3^n = \frac{1}{2}(3^m+1)$$ by using the properties of geometric series.
+	\item Conclude that $$\left\lvert\frac{f(x+\delta_m)-f(x)}{\delta_m}\right\rvert\to +\infty$$ for ${n\to+\infty}$, by using the points above.
+	
+\end{enumerate}
+
+[Hint: this is Theorem 7.18 of Rudin]
+\end{Exercise}
+
+\begin{Exercise} [title={*$\dagger$}]
+	Show that if we define a sequence with a double index as $$s_{m,n} = \frac{m}{n+m}$$ then
+	$$\lim_{m\to\infty}\lim_{n\to\infty} s_{m,n} \neq \lim_{n\to\infty}\lim_{m\to\infty} s_{m,n}.$$
+\end{Exercise}
+
+\begin{Exercise} [title={*$\dagger$}]
+	Show that if we define a sequence of continuous functions as $$f_n(x) = \frac{x^2}{(1+x^2)^n}$$ then the function $f$ defined by the sum
+	$$f(x) = \sum_{n=0}^{+\infty}f_n(x)$$
+	is not continuous.
+\end{Exercise}
+
+\begin{Exercise} [title={*$\dagger$}]
+	Show that if we define a sequence of differentiable functions as $$f_n(x) = \frac{\sin(nx)}{\sqrt n}$$ then the function $f$ defined by the limit
+	$$f(x) = \lim_{n\to+\infty} f_n(x)$$
+	is differentiable but $$f'(x)\neq \lim_{n\to+\infty} f_n'(x).$$
+\end{Exercise}
+
+\begin{Exercise} [title={*$\dagger$}]
+	Show that if we define a sequence of Riemann-integrable functions (in the interval $(0,1)$) as $$f_n(x) = n^2x(1-x^2)^n$$ then the function $f$ defined by the limit
+	$$f(x) = \lim_{n\to+\infty} f_n(x)$$
+	is also Riemann-integrable on the same interval but $$\int_0^1 f(x)dx\neq \lim_{n\to+\infty} \int_0^1 f_n(x) dx.$$
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Let $(X,d)$ be a metric space. Show that the distance induced by the supremum norm (as defined in Defn. 7.14 of Rudin) on the set of continuous and bounded functions $\mathcal{C}(X)$ satisfies the axioms of distance.
+\end{Exercise}
+
+\begin{Exercise}[title={*}]
+	Argue that every function of an equicontinuous family is uniformly continuous. Construct a family of uniformly continuous functions that is not an equicontinuous family.
+\end{Exercise}
+
+
+\end{document}
+

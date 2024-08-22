@@ -1,0 +1,152 @@
+% !TeX program = latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=% -pretex="\newcommand{\version}{noanswer}" -usepretex % | latexmk -pdf -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape" -jobname=%_solutions -pretex="\newcommand{\version}{}" -usepretex % | txs:///view-pdf "?am)_solutions.pdf"
+
+\documentclass[11pt]{article}% autres choix : report, book
+
+% setting a default value in case it is compiled without the magic comment
+\unless\ifdefined\version
+\def\version{noanswer}
+\fi
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{textcomp}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{pxfonts}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{pgfplots}
+\usepackage[\version]{exercise}
+\hypersetup{pdfstartview=XYZ}% zoom par défaut
+\newtheoremstyle{exercice}%
+%\usepackage{tikz}% Faire figure, graphique...
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries}% police du titre du théorème
+{}% ponctuation après le théorème
+{ }% espace après le titre du théorème (\newline = saut de ligne)
+{\thmname{#1}\thmnumber{ \textup{#2}}. ---\thmnote{ \textnormal{\itshape#3.}}}% spécification
+% du titre du théorème
+
+%Custom symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\e}{\mathrm{e}}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\st}{\;|\;}
+\newcommand{\bigst}{\;\Bigg|\;}
+
+\newtheorem{theorem}{Theorem}
+
+%Customization of the Answers package
+\def\AnswerName{Solution of exercise}
+%\newcommand{\AnswerHeader}{\medskip{\textbf{ Answer of \ExerciseName\ \ExerciseHeaderNB}\smallskip}}
+\renewcommand{\ExerciseHeader}{%
+	\par\noindent
+	\textbf{\large \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle\ExerciseHeaderOrigin}%
+	\par\nopagebreak\medskip
+}
+
+\renewcommand{\AnswerHeader}{%
+	\par\noindent
+	\textbf{\large Solution of \ExerciseName\ \ExerciseHeaderNB \ExerciseHeaderTitle}%
+	\par\nopagebreak\medskip
+}
+\setlength{\ExerciseSkipAfter}{1\baselineskip}
+\setlength{\AnswerSkipAfter}{1\baselineskip}
+
+\title{MAT 211 : Exercise Sheet 8}
+\author{Francesco Ballerin}
+\date{\color{gray}{\small{francesco.ballerin@uib.no}}}
+
+\pagestyle{empty}
+
+
+\begin{document}
+\begin{minipage}[t]{\dimexpr \textwidth-6cm-\columnsep}
+     \maketitle
+\end{minipage}
+\hfill\noindent\raisebox{-1.5\height}{\includegraphics[scale=0.1]{../UiBlogoMN.png}}
+
+\vspace{50pt}
+
+
+
+\begin{Exercise}[title=**] Show that the series 
+$$
+\sum_{n=2}^{\infty}\frac{1}{n(\log n)^p} 
+$$
+converges for $p>1$ and diverges for $p\leq 1$.
+\end{Exercise}
+
+
+\begin{Exercise}[title=**$\dagger$]
+Let $(u_n)_{n\in\mathbb{N}}$ be a sequence in $\mathbb{R}$.
+\begin{enumerate}
+	\item Suppose that the sequence $(u_n)_{n\in\mathbb{N}}$ converges to $l$. Prove that $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ also converge to $l$. 
+	\item Prove the inverse is not true, that is if $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ both converge then $(u_n)_{n\in\mathbb{N}}$ might not converge.
+	\item Prove that however if $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ converge to the same limit $l$ then $(u_n)_{n\in\mathbb{N}}$ also converges to $l$.
+\end{enumerate}
+\end{Exercise}
+\newpage
+
+\begin{Exercise}[title=***]
+Compute the radius of convergence of the following power series, where $z\in\mathbb{C}$ is a fixed complex number.
+\begin{enumerate}
+	\item $$\displaystyle\sum_{n\in\mathbb{N}\backslash\{0\}} \frac{z^n}{\sqrt{n}}$$
+	\item $$\displaystyle\sum_{n\in\mathbb{N}}\frac{n!}{(2n)!}z^n$$
+	\item $$\displaystyle\sum_{n\in\mathbb{N}\backslash\{0\}}\log(n)z^n$$
+	\item $$\displaystyle\sum_{n\in\mathbb{N}}z^{n!}$$
+	\item $$\displaystyle\sum_{n\in\mathbb{N}\backslash\{0\}}n^{\log(n)}z^n$$
+	\item Let $a_n$ be the $n^{\text{th}}$ decimal of $\sqrt{2}$ $$\displaystyle\sum_{n\in\mathbb{N}}a_nz^n$$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=***]
+Write the following functions as power series, and compute the radius of convergence:
+\begin{enumerate}
+	\item $$f(x) = \frac{6}{1+7x^4}$$
+	\item $$f(x) = \frac{x^3}{3-x^2}$$
+	\item $$f(x) = \frac{3x^2}{5-2\sqrt[3]{x}}$$
+	[Hint: rewrite the denominator to be in the form $1-p(x)$, where $p(x)$ depends on $x$, and recall the properties of geometric series]
+\end{enumerate}
+\end{Exercise}
+
+\newpage
+
+\begin{Exercise}[title=**$\dagger$]
+For each of the following real-valued functions of a real variable give a well
+written $\epsilon-\delta$ proof of the claim.
+\begin{enumerate}
+	\item $$\lim_{n\rightarrow2}(3x^2-2x + 1)=9$$
+	\item $$\lim_{n\rightarrow-1}8x^2=8$$
+	\item $$\lim_{n\rightarrow16}\sqrt{x}=4$$
+	\item $$\lim_{n\rightarrow1}\frac{3}{x-2}=-3$$
+	\item $$\lim_{n\rightarrow3}\frac{x+4}{2x-5}=7$$
+\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	 Let $$R(x)=\frac{a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0}{b_mx^m+b_{m-1}x^{n-1}+\ldots+b_0},$$ where $a_n\neq 0$, $b_m\neq 0$ be a division between polynomials. Show that 
+$$\lim\limits_{x\to\infty}R(x)=\left\{\begin{array}{lllc}\infty \quad & \text{if}\quad & n>m,\\
+	\frac{a_n}{b_m} &\text{if}  & n=m,\\
+	0&\text{if}  & n<m.
+\end{array}\right.
+$$
+\end{Exercise}
+
+
+\begin{Exercise}[title=**$\dagger$] Let $P(x)$ and $Q(x)$be polynomials on $x$ and $$P(a)=Q(a)=0.$$ What are the possible values of the limit $$\lim\limits_{x\to a}\frac{P(x)}{Q(x)}?$$ Explain your reasoning and provide examples for all the cases.
+\end{Exercise}
+\end{document}
+
