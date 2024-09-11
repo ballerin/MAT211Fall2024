@@ -80,16 +80,33 @@
 
 \vspace{50pt}
 
+\begin{Exercise}[title=*$\dagger$]
+	Let $(G,+)$ be a group. Show that the neutral element $e$ is unique.
+\end{Exercise}	
+
 \begin{Exercise}[title=*]
-	Prove Proposition 1.15 of Rudin.
+	Show that the set of natural numbers $\mathbb N$ does not have a supremum in $\N$. What about in $\mathbb R$?
 \end{Exercise}
 
 \begin{Exercise}[title=*]
-	Complete the rest of the proof of Proposition 1.18 of Rudin.
+	Show that the axioms for addition for a field imply the following statements.
+	\begin{enumerate}[label={\alph*)}]
+		\item if $x+y=x+z$ then $y=z$
+		\item if $x+y=x$ then $y=0$
+		\item if $x+y=0$ then $y=-x$
+		\item $-(-x)=x$
+	\end{enumerate}
 \end{Exercise}
 
 \begin{Exercise}[title=*]
-	Complete the rest of the proof of Theorem 1.4.5 of Abbott.
+	Show that the axioms for multiplication for a field imply the following statements.
+	\begin{enumerate}[label={\alph*)}]
+		\item if $x\neq0$ and $xy=xz$ then $y=z$
+		\item if $x\neq0$ and $xy=x$ then $y=1$
+		\item if $x\neq0$ and $xy=1$ then $y=x^{-1}$
+		\item if $x\neq0$ and $(x^{-1})^{-1}=x$
+	\end{enumerate}
+	[Notation-wise $x^{-1}=\frac{1}{x}$]
 \end{Exercise}
 
 \begin{Exercise}[title=*]
@@ -132,7 +149,7 @@
 \end{Exercise}
 
 \begin{Exercise}[title=*]
-	A set $S\subset\R$ is said to be bounded if $\exists M$ s.t. $\forall x\in S$ it holds that $|x|\leq M$.
+	A set $S\subset\R$ is said to be bounded if $\exists M\in\mathbb{R}$ s.t. $\forall x\in S$ it holds that $|x|\leq M$.
 	
 	Is the union of two bounded sets a bounded set? What about the union of countably infinite bounded sets? 
 \end{Exercise}
@@ -141,7 +158,7 @@
 	A real number $\R$ is said to be \emph{algebraic} if there exist integers $a_0, a_1, a_2,\dots, a_n\in\mathbb{Z}$, not all zero, s.t. 
 	\[a_n x^n + a_{n-1}x^{n-1}+\cdots+ a_1x + a_0 =0\]
 	i.e. if it is the root of a non-zero polynomial. If a real number is not algebraic then it is said to be \emph{transcendental}.
-	\begin{enumerate}
+	\begin{enumerate}[label={\alph*)}]
 		\item Show that all natural numbers are algebraic.
 		\item Show that $\sqrt 2$ and $\sqrt 3$ are algebraic.
 		\item Show that $\sqrt2 + \sqrt3$ is algebraic.
@@ -151,19 +168,16 @@
 	\end{enumerate}
 \end{Exercise}
 
-\begin{Exercise}[title = ***]
-	Exercise 1.5.11 of Abbott.
-\end{Exercise}
-
 \begin{Exercise}[title=**$\dagger$]
-	Verify, using the definition of convergence of a sequence (i.e. given an $\epsilon$ find the corresponding $N\in\N$), that the following sequences converge to the proposed limit:
-	\begin{enumerate}
-		\item $\lim \frac{1}{\sqrt n} = 0$
-		\item $\lim \frac{n+1}{n} = 1$
-		\item $\lim \frac{2n+1}{5n+4} = \frac{2}{5}$
-		\item $\lim \frac{2n^2}{n^3+3} = 0$
-		\item $\lim \frac{\sin(n^2)}{\sqrt[3]{n}} = 0$
+	Verify, using the definition of convergence of a sequence (i.e. given an $\epsilon$ find the corresponding $N\in\N$), that the following sequences converge to the proposed limit.
+	\begin{enumerate}[label={\alph*)}]
+		\item \[\lim_{n\to\infty} \frac{1}{\sqrt n} = 0\]
+		\item \[\lim_{n\to\infty} \frac{n+1}{n} = 1\]
+		\item \[\lim_{n\to\infty} \frac{2n+1}{5n+4} = \frac{2}{5}\]
+		\item \[lim_{n\to\infty} \frac{2n^2}{n^3+3} = 0\]
+		\item \[\lim_{n\to\infty} \frac{\sin(n^2)}{\sqrt[3]{n}} = 0\]
 	\end{enumerate}
+	[Hint: reduce each problem to an inequality with $\frac{1}{n}$]
 \end{Exercise}
 
 

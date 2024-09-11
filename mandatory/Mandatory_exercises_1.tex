@@ -46,25 +46,15 @@ Francesco Ballerin \hfill Universitetet i Bergen
 \vskip2ex
 }
 
-\newcommand{\Tailperso}[1]{%
-\vfill	
-\vskip2ex\noindent
-\hrule
-\vskip2ex\noindent
-{\small
-Informations générales, séries, voir \url{https://moodle.unige.ch/course/view.php?id=5641}}
-\vskip2ex\noindent
-\vskip2ex
-}
 
 \begin{document}
 
-\Headperso{\textbf{Mandatory homework 1}\\ Deadline: September 25, 2023 (at 23:59)}{MAT211 Fall2023}
+\Headperso{\textbf{Mandatory homework 1}\\ Deadline: September 23, 2024 (at 23:59)}{MAT211 Fall2024}
 
 \noindent
-\textit{This mandatory homework consists of three exercises. They need time to be solved properly, so start to work on them well in advance. I strongly advise you to try the exercises on your own, then compare your solutions with the other students, and to ask questions to either Torunn or me if you are really stuck. Try to be as \textbf{rigorous and clear} as possible. If the exercise consists of finding a solution, then finding and stating the solution is not sufficient, and will give you zero points: you have to properly write the procedure to achieve the solution in terms of mathematical statements.
+\textit{This mandatory homework consists of three exercises. They need time to be solved properly, so start to work on them well in advance. I strongly advise you to try the exercises on your own, then compare your solutions with the other students, and to ask questions to me if you are really stuck. Try to be as \textbf{rigorous and clear} as possible. If the exercise consists of finding a solution, then finding and stating the solution is not sufficient, and will give you zero points: you have to properly write the procedure to achieve the solution in terms of mathematical statements.
 This homework is designed as a training for the exam, and is a \textbf{mandatory} part of the course.
-The outcomes of the assignment are pass/fail, with a threshold of 50\%. Try to complete as much of the assignment as possible, as only correct parts of the work count towards the 50\%. Failure to pass this mandatory assignment will automatically exclude a candidate from the final exam.}
+The outcomes of the assignment are pass/fail, with a threshold of 50\%. Try to complete as much of the assignment as possible, as only correct parts of the work count towards the 50\%. \textbf{Failure to pass this mandatory assignment will automatically exclude a candidate from the final exam.}}
 
 \bigskip
 \bigskip
@@ -77,8 +67,8 @@ The outcomes of the assignment are pass/fail, with a threshold of 50\%. Try to c
 \textbf{Exercise 1 - Supremum and infimum}\\
 We study the following sets:
 $$A=\left\{\frac{(-1)^n}{n}\;\Big|\; n\in \N^*\right\},\quad
-B=\left\{\frac{1}{n}\;\Big|\;n\in \N^*\right\}.$$
-Do the suprema/infima of $A$ and $B$ exist? If yes, compute them and explain if they also are maxima/minima.
+B=\left\{q\in\mathbb Q\;|\;q\geq 0, q^2<2\right\}.$$
+Do the suprema/infima of $A$ and $B$ exist in $\mathbb Q$? And in $\mathbb R$? If yes, compute them and explain if they also are maxima/minima.
 
 \solution{The sets are not empty, have an upper bound $1$ and the lower bound $-1$, so the suprema/infima exist.
 $$
@@ -127,14 +117,10 @@ $$\varphi(A+_M B)=\varphi(A)+_\mathbb{C} \varphi(B),\qquad \varphi(A\times_M B)=
 
 
 
-\textbf{Exercise 3 - A metric space}\\
-For $p,q\in \R$, define
-$$d(p,q)=\left\{
-\begin{array}{l}
-1 \text{ if } p\neq q\\
-0 \text{ if } p= q
-\end{array}\right.$$
-Prove that $(\R,d)$ is a metric space. Find all the open and closed subsets for this topology. Find the compact subsets as well.
+\textbf{Exercise 3 - A metric space for continuous functions}\\
+Let $X = C([a,b], \mathbb R)$ be the set of real continuous functions with domain $[a,b]\subset\mathbb R$. Define the function $d:C([a,b], \mathbb R)\times C([a,b], \mathbb R)\to \mathbb R$ as
+\[d(f,g) = \left(\int_a^b |f(x)-g(x)|^2dx\right)^\frac{1}{2}.\]
+Show that $d$ is a distance and that $(X,d)$ is a metric space. Show that if $X$ is instead the set of all real functions (not necessarily continuous) with domain $[a,b]\subset\mathbb R$, and $d$ has the same expression but not restricted to continuous functions, then $(X,d)$ is not a metric space.
 
 
 

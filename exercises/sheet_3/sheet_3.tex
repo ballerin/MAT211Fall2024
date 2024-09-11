@@ -81,8 +81,58 @@
 \vspace{50pt}
 
 \begin{Exercise}[title=**$\dagger$]
+	Find the infimum and the supremum (if they exist) for each one of the following sets:
+	$$
+	A=\bigg\{ \frac{2^n}{2^n-1} \Big|  n\in\mathbb N/\{0\} \bigg\}$$
+	$$\quad B=\bigg\{ \frac{x^n}{|x^n-1|}\Big| x\in(0,1)\cup(1,\infty), n\in\mathbb N/\{0\} \bigg\}
+	$$
+	Show why they are infima and suprema.
+	Are they also maxima and minima? Why or why not?
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is it always true that for a set $A\subset \R$ then $\inf A \leq \sup A$?
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Let $S$ be a nonempty set of real numbers and $b=\sup S$. Show that for any $a\in S$ such that $a<b$ there is a number $x\in S$ such that $$a<x\leq b.$$
+\end{Exercise}
+
+
+\begin{Exercise}[title=**]
+	Let $S,T\subset{\mathbb R}$ be two nonempty sets, such that $s\leq t$ for all $s\in S$ and all $t\in T$. Show that if $T$ has a supremum, then $S$ has a supremum and $\sup S\leq\sup T$. What can you say about $\inf T$?
+\end{Exercise}
+
+\begin{Exercise} [title=**]
+	Let $A,B\subset{\mathbb R}$ be bounded sets. Show that $A\cup B$ is bounded, and moreover $\sup(A\cup B)=\max\{\sup A,\sup B\}$.
+\end{Exercise}
+
+\begin{Exercise} [title=**$\dagger$]
+	Let $A$ and $B$ be two nonempty sets of real numbers and let $$C=\{x+y \st x\in A,\ \ y\in B\}.$$ Assume that $A$ and $B$ admit a supremum. Show that the supremum of $C$ exists and $$\sup C=\sup A +\sup B.$$
+\end{Exercise}
+
+\begin{Exercise} [title=**]
+	Let $A$ be a nonempty set of real numbers which is bounded below. Let $$-A=\{-x\colon x\in A\}.$$ Prove that $$\inf A=-\sup(-A)$$
+\end{Exercise}
+
+\begin{Exercise} [title=***]
+	\begin{enumerate}[label={\alph*)}]
+		\item Consider the set of all real polynomials
+		$$\mathbb{R}[x] = \{ p(x) = a_n x^n + \cdots + a_1 x+ a_0 \, | \, n \in \mathbb{N} , a_n , \dots, a_1, a_0 \in \mathbb{R}\} .$$
+		and define $+$ and $\times$ on $\mathbb{R}[x]$ as the usual addition and multiplication of function. Is $\mathbb{R}[x]$ a field? Why or why not?
+		\item Define $\mathbb{F}$ as
+		$$\mathbb{F}= \left\{ R(x) = \frac{p(x)}{q(x)} \bigst p(x), q(x) \in \mathbb{R}[x], q(x) \neq 0\right\} .$$
+		and define $+$ and $\times$ on $\mathbb F$ as the usual addition and multiplication of function. Is $\mathbb{F}$ a field? Why or why not?
+		
+		\item Define a relation $<$ on $\mathbb{F}$, by
+		$$R(x) < S(x) \quad \Leftrightarrow \quad S(x)- R(x) = \frac{a_n x^n + \cdots + a_1 x+ a_0}{b_m x^m + \cdots + b_1 x+ b_0} \text{ with } \frac{a_n}{b_m} >0.$$
+		Show that $<$ is an order relation. Show that $(\mathbb{F}, <)$ is an ordered field.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$]
 	Show that for a sequence $(x_n)_n$ the following are equivalent:
-	\begin{enumerate}
+	\begin{enumerate}[label={\alph*)}]
 		\item the sequence $(x_n)_n$ converges
 		\item all subsequences of $(x_n)_n$ converge
 	\end{enumerate}
@@ -95,25 +145,16 @@
 \end{Exercise}
 
 \begin{Exercise}[title=**]
-	Show that every sequence contains a monotone subsequence. Explain why this gives us a new proof for Bolzano-Weierstrass in the case of a bounded sequence.
+	Show that every sequence in $\mathbb R$ contains a monotone subsequence. Explain why this gives us a new proof for Bolzano-Weierstrass in the case of a bounded sequence.
 \end{Exercise}
 
 \begin{Exercise}[title=**]
 	Prove the following statements for $n\in \mathbb{N}$ and $x,p\in\mathbb{R}$:
-	\begin{enumerate}
+	\begin{enumerate}[label={\alph*)}]
 		\item[i)]{If $p>0$, then $$\lim\limits_{n\to\infty}\frac{1}{n^p}=0$$}
 		\item[ii)]{If $p>0$, then $$\lim\limits_{n\to\infty}\sqrt[n]{p}=1$$}
 		\item[iii)]{If $|x|<1$, then $$\lim\limits_{n\to\infty}x^n=0$$}
 	\end{enumerate}
-\end{Exercise}
-
-\begin{Exercise}[title=**$\dagger$]
-	Let $a,b\in\R^n$ so that $a=(a_1,\ldots, a_n)$ and $b=(b_1,\ldots, b_n)$, where $a_k$ and $b_k$ are real numbers. Revise the proof of the Cauchy-Bunyakovsky-Schwarz inequality 
-	$$
-	\Big(\sum_{k=1}^{n}a_kb_k\Big)^2\leq \Big(\sum_{k=1}^{n}a_k^2\Big)\cdot\Big(\sum_{k=1}^{n}b_k^2\Big).
-	$$
-	Under what conditions is it actually an equality rather than an inequality?
-	\bigskip
 \end{Exercise}
 
 \begin{Exercise}[title=**]
@@ -130,13 +171,18 @@
 	\bigskip
 \end{Exercise}
 
-\begin{Exercise} [title=*$\dagger$]
-	Using the definition show that the following spaces are metric spaces, i.e. show that the three axioms of a metric space hold:
-	\begin{enumerate}
-		\item $(\R,d)$ where $d(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
-		\item $(\mathbb Z,d)$ where $d(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
-		\item $(\R^n,d)$ for $n\in\N$, $n\geq 2$, where $d(x,y)=\lVert x-y\rVert$ and $\lVert \cdot\rVert$ is the norm of a vector.
-		\item $(\R,d)$ where $d(x,y)=1$ if $x=y$ and $d(x,y)=0$ if $x\neq y$.
+\begin{Exercise} [title=**$\dagger$]
+	Using the definition show that the following spaces are metric spaces, i.e. show that the three axioms for a metric space hold:
+	\begin{enumerate}[label={\alph*)}]
+		\item $(\R,d_1)$ where $d_1(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
+		\item $(\mathbb Z,d_2)$ where $d_2(x,y)=|x-y|$ and $|\cdot|$ is the absolute value.
+		\item $(\R^n,d_3)$ for $n\in\N$, $n\geq 2$, where $d_3(x,y)=\lVert x-y\rVert$ and $\lVert \cdot\rVert$ is the norm of a vector.
+		\item $(\R,d_4)$ where $d_4(x,y)=1$ if $x=y$ and $d_4(x,y)=0$ if $x\neq y$.
+		\item $(\R^3, d_5)$ where $d_5(\textbf{x},\textbf{y}) = d_3((x_1,x_2),(y_1,y_2))+d_1(x_3,y_3)=  \sqrt{(x_1-y_1)^2+(x_2-y_2)^2}+|x_3-y_3|$, i.e. the usual Euclidean distance in the first two dimensions and then the usual Euclidean distance in the third dimension. Imagine it as being able to move in the 3d space horizontally on the $xy$ plane or vertically, but not both at the same time.
+		\item $(\R^n, d_6)$ where $d(\textbf{x},\textbf{y})=d_4(x_1,y_1)+d_4(x_2,y_2)+\dots+d_4(x_n,y_n)$
+		\item $(C([a,b], \R), d_7)$ where $C([a,b], \R)$ is the space of continuous functions from $[a,b]$ to $\R$ and \[d_7(f,g) = \int_a^b |f(x)-g(x)|dx.\]
+		What happens if we drop the hypothesis of continuity?
+		
 	\end{enumerate}
 \end{Exercise}
 
