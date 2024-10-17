@@ -80,10 +80,35 @@
 
 \vspace{50pt}
 
+\begin{Exercise}[title=**]
+	Suppose $(s_n)_n$ and $(t_n)_n$ are sequences in the Euclidean space $\R$ with the usual metric, that $s_n\to s$ and $t_n\to t$. Then show:
+	\begin{enumerate}[label={\alph*)}]
+		\item $\forall c\in\R\; c+s_n\to c+s$;
+		\item $\forall c\in\R\; cs_n\to cs$;
+		\item $s_n +t_n\to s+t$;
+		\item $s_n t_n\to st$;
+		\item $\frac{1}{s_n}\to \frac{1}{s}$ provided that $\forall n\in\N\; s_n\neq 0$ and $s\neq 0$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Let $(X,d)$ be a metric space. Show that if a subsequence of a Cauchy sequence converges, then the Cauchy sequence converges to the same limit as its subsequence.
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	For $p,q\in \R$, define
+	$$d(p,q)=\left\{
+	\begin{array}{l}
+		1 \text{ if } p\neq q\\
+		0 \text{ if } p= q
+	\end{array}\right.$$
+	Prove that $(\R,d)$ is a metric space. Find all the open and closed subsets for this topology. Find the compact subsets as well.
+\end{Exercise}
+
 \begin{Exercise} [title=**$\dagger$]
 	Let $(X,d)$ be a metric space.
 \begin{enumerate}
-	\item Let $x_n\in X$ be a sequence converging to $l$ such that $\forall n$ $x_n\neq l$, prove $$E:=\{x_n| n\in\mathbb{N} \}$$ is non closed.
+	\item Let $(x_n)_n$ be a sequence converging to $l$ such that $\forall n$ $x_n\neq l$, prove $$E:=\{x_n| n\in\mathbb{N} \}$$ is non closed.
 	\item Prove $E\cup \{l\}$ is closed and compact.
 	\item Let $(x_n)_{n\in\mathbb{N}}\in [0,1]$ be any sequence (might even not converge). Prove that there exists a subsequence of $(x_n)_{n\in\mathbb{N}}$ that converges in $[0,1]$.
 \end{enumerate}
@@ -103,11 +128,6 @@ Let $(\mathbb{Q},d)$, with $d(x,y)=|x-y|$ be a metric space. Let $E:=\{ p\in\mat
 We say a metric space is \emph{separable} if it contains a subset that is both dense and countable (or finite). Show that $\mathbb R$ is separable. Is $\mathbb R^n$ separable?
 \end{Exercise}
 
-\begin{Exercise}[title=**]
-	Recall the Nested Interval Property for $\R^1$, i.e. in $(\mathbb R^1,|\cdot|)$ for any sequence of closed non-empty intervals $(I_n)_{n}$ such that $I_n\supset I_{n+1}$, $\forall n\in\N$ the intersection $\cap_{n=1}^{\infty}I_n$ is not empty (will contain at least a point). Is the same true for the metric space $(\mathbb R^1,d)$, where $d(x,y)=\frac{|x-y|}{1+|x-y|}$, that any decreasing sequence of closed and bounded sets has non empty intersection? Why (prove) or why not (provide a counterexample)?
-	
-	[Hint: since the metric changes, the way open balls are defined could (potentially) change as well, thus changing what closed set are. Does this really happen?]
-\end{Exercise}
 
 \begin{Exercise}[title=**$\dagger$]
 	Let $\Q$ endowed with the Euclidean distance be the metric space of interest.

@@ -80,7 +80,7 @@
 
 \vspace{50pt}
 
-\begin{Exercise}[title=**$\dagger$] Use the definition of the convergent series to show that the following series converge. Find their sums. $$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2^{n-1}}=1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots+\frac{(-1)^{n-1}}{2^{n-1}}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{2n-1}{2^n}=\frac{1}{2}+\frac{3}{2^2}+\frac{5}{2^3}+\ldots+\frac{2n-1}{2^n}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\ldots+\frac{1}{n(n+1)}+\ldots$$
+\begin{Exercise}[title=**] Show that the following series converge. Find their sums. $$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{2^{n-1}}=1-\frac{1}{2}+\frac{1}{4}-\frac{1}{8}+\ldots+\frac{(-1)^{n-1}}{2^{n-1}}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{2n-1}{2^n}=\frac{1}{2}+\frac{3}{2^2}+\frac{5}{2^3}+\ldots+\frac{2n-1}{2^n}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\frac{1}{3\cdot 4}+\ldots+\frac{1}{n(n+1)}+\ldots$$
 \end{Exercise}
 
 \begin{Exercise}[title=*] Study the convergence of the series $\sum_{n=1}^{\infty}\sin (nx)$ for every $x\in\mathbb R^n$. 
@@ -91,43 +91,107 @@
 \bigskip
 
 \begin{Exercise}[title=**$\dagger$]
-	Which of the following series converge and which diverge? Explain. $$\sum_{n=0}^{\infty}(-1)^n=1-1+1-1+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n!}=\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\ldots+\frac{1}{n!}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n\sqrt{n+1}}=\frac{1}{\sqrt 2}+\frac{1}{2\sqrt 3}+\frac{1}{3\sqrt 4}+\ldots+\frac{1}{n\sqrt{n+1}}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{\sqrt{(2n-1)(2n+1)}}=\frac{1}{\sqrt {1\cdot 3}}+\frac{1}{\sqrt {3\cdot 5}}+\ldots+\frac{1}{\sqrt{(2n-1)(2n+1)}}+\ldots$$
-\end{Exercise}
-
-\begin{Exercise}[title=**] Let $\sum_{n=1}^{\infty} a_n$ be a series such that $\forall n\;\; a_n>0$. Show that if the limit \begin{equation*}\label{A}\lim\limits_{n\to\infty}\frac{a_{n+1}}{a_n}=q\end{equation*} exists, then the limit \begin{equation*}\label{B}\lim\limits_{n\to\infty}\sqrt[n]{a_n}=q\end{equation*} also exists.\\ Is the inverse statement true?
-\bigskip
-
-[Hint: consider $\sum_{n=1}^{\infty}\frac{3+(-1)^n}{2^{n+1}}$.]
+	Which of the following series converge and which diverge? Explain. 
+	$$\sum_{n=0}^{\infty}(-1)^n=1-1+1-1+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{n!}=\frac{1}{1!}+\frac{1}{2!}+\frac{1}{3!}+\ldots+\frac{1}{n!}+\ldots$$ $$\sum_{n=1}^{\infty}\frac{1}{\sqrt{(2n-1)(2n+1)}}=\frac{1}{\sqrt {1\cdot 3}}+\frac{1}{\sqrt {3\cdot 5}}+\ldots+\frac{1}{\sqrt{(2n-1)(2n+1)}}+\ldots$$
 \end{Exercise}
 
 \begin{Exercise}[title=**$\dagger$] Find the radius of convergence of each of the following power series: $$\sum_{n=1}^{\infty}n^3z^n,\qquad\sum_{n=1}^{\infty}\frac{2^n}{n!}z^n,\qquad\sum_{n=1}^{\infty}\frac{2^n}{n^2}z^n,\qquad\sum_{n=1}^{\infty}\frac{n^3}{3^n}z^n.$$
 \end{Exercise}
 
-\begin{Exercise}[title=**] Prove that the sequence $(x_n)_n$ for
-	$$x_n=1+\frac{1}{2}+\frac{1}{3}+\ldots+\frac{1}{n}-\ln n,\quad n\in\mathbb N \backslash \{0\}$$ converges to a certain constant $\gamma$, which is known as the Euler constant.
-\bigskip
-
-[Hint: try to show that the sequence is both bounded and decreasing. To show it is decreasing, recall that $ln(1-x)$ is a concave function. To  show it is bounded consider $\int_1^{n+1}\frac{1}{t}dt = ln(n+1)$, which sits between the harmonic series and $ln(n)$]
 
 
+\begin{Exercise}[title=**$\dagger$]
+	Suppose $f,g:\mathbb R \rightarrow \mathbb R $ are well defined real valued functions such that $\lim_{x\rightarrow a} f(x) =K$ and $\lim_{x\rightarrow a} g(x) = L$ exist. Let $c\in\mathbb R$ be a constant. Prove the following claims: 
+	\begin{enumerate}
+		\item $$\lim_{x\rightarrow a} cf(x) = c \lim_{x\rightarrow a} f(x) = cK$$
+		\item $$\lim_{x\rightarrow a} f(x) + g(x) = \lim_{x \rightarrow a} f(x) + \lim_{x \rightarrow a} g(x) = K+L$$
+		\item $$\lim_{x\rightarrow a} f(x) \cdot g(x) = \lim_{x \rightarrow a} f(x) \cdot \lim_{x \rightarrow a} g(x) = K\cdot L$$
+		\item If $L\neq0$ then
+		$$\lim_{x\rightarrow a} \frac{f(x)}{g(x)} = \frac{\lim_{x \rightarrow a} f(x) }{ \lim_{x \rightarrow a} g(x)} = \frac{K}{L}$$
+		\item For $n\in\mathbb{N}$ $$\lim_{x\rightarrow a} [f(x)]^n = [\lim_{x\rightarrow a} f(x)]^n=K^n$$
+	\end{enumerate}
+	[Hint: recall a similar proposition with limit of sequences]
 \end{Exercise}
 
-\begin{Exercise}[title=*] Find the value of the sum $$\sum_{n=1}^{\infty}\frac{(-1)^{n-1}}{n}=1-\frac{1}{2}+\frac{1}{3}-\frac{1}{4}+\frac{1}{5}-\frac{1}{6}+\ldots.$$
+\begin{Exercise}[title=**$\dagger$]
+	Study uniform continuity of the following functions.
+	\begin{enumerate}
+		\item{$f(x)=\ln x$ on $(0,1)$,}
+		\item{$f(x)=\frac{\sin x}{x}$ on $(0,\pi)$,}
+		\item{$f(x)=\sqrt x$ on $[1,+\infty)$,}
+	\end{enumerate}
+\end{Exercise}
 
-[Hint: try to apply two times the formula from the previous problem]
+\begin{Exercise}[title=**$\dagger$]
+	Study the following sequences of functions and determine if they diverge, if they converge pointwise, or converge uniformly.
+	\begin{enumerate}
+		\item $f_n(x) = \frac{x}{n}$ with $n\geq 1$.
+		\item $f_n(x) = x^n$ with $n\geq 0$.
+		\item $f_n(x) = e^{-x}\left(1+\frac{x}{n}\right)^{n}$ with $n\geq 1$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=*$\dagger$] Draw the graphs of the following functions and study the continuity and discontinuity on their domain:
+	\begin{itemize}
+		\item[a)]{$f(x)=\sin\frac{\pi}{x}$ if $x\neq 0$ and $f(0)$ is arbitrary,}
+		\item[b)]{$f(x)=x\sin\frac{\pi}{x}$ if $x\neq 0$ and $f(0)=0$,}
+		\item[c)]{$f(x)=e^{-\frac{1}{x^2}}$,}
+		\item[d)]{$f(x)=\left\{\begin{array}{lllc}\frac{1}{n} \quad & \text{if}\quad & x=\frac{m}{n},\\
+				0 &\text{if}  & x\quad\text{is irrational}.\end{array}\right.
+			$}
+	\end{itemize}
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is the sum of two functions $f(x)+g(x)$ discontinuous at $x_0$ if 
+	\begin{itemize}
+		\item[a)]{the function $f$ is continuous but the function $g$ is discontinuous at $x_0$?}
+		\item[b)]{both of the functions $f$ and $g$ are discontinuous at $x_0$?}
+	\end{itemize} Prove your result or construct counterexamples.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is the product of two functions $f(x)g(x)$ discontinuous at $x_0$ if 
+	\begin{itemize}
+		\item[a)]{the function $f$ is continuous but the function $g$ is discontinuous at $x_0$?}
+		\item[b)]{both of the functions $f$ and $g$ are discontinuous at $x_0$?}
+	\end{itemize} Prove your result or construct counterexamples.
 \end{Exercise}
 
 
-\begin{Exercise}[title={**}] Define the number $e\in \mathbb R$ by the sum of the series
-$$
-e=\sum_{n=0}^{\infty}\frac{1}{n!}.
-$$
-\begin{enumerate}
-	\item Show that this is a good definition (the series converges in $\mathbb{R}$) [Rudin 3.30].
-	\item {Show that $e$ is an irrational number [Rudin 3.31].}
-	\item {Show that $e$ is also the limit of the sequence $\Big(1+\frac{1}{n}\Big)^n$ [Rudin 3.32].}
-\end{enumerate}
 
+\begin{Exercise}[title=**]
+	Prove that the sum and product of two uniformly continuous functions defined on an interval $(a,b)$, $-\infty<a<b<+\infty$ are uniformly continuous on the same interval.
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	Is it true that if $f(x)$ is differentiable on the open interval $(a,b)$, with $-\infty<a<b<+\infty$, and $$\lim_{x\to a}f^{\prime}(x)=\infty$$ then $$\lim_{x\to a}f(x)=\infty?$$ 
+	
+	[Hint: Consider the example $f(x)=\sqrt[3]{x}$ as $x\to 0$]
+\end{Exercise}
+
+\begin{Exercise}[title=**]
+	Use the mean value theorems to show the following inequalities:
+	\begin{itemize}
+		\item[a)]{$|\sin x-\sin y|\leq |x-y|$}
+		\item[b)]{$py^{p-1}(x-y)\leq x^p-y^p\leq px^{p-1}(x-y)$\ \  if $0<y<x$ and $p>1$}
+		\item[c)]{$\frac{a-b}{a}<\ln\frac{a}{b}<\frac{a-b}{b}$\ \  if $0<b<a$}
+	\end{itemize} 
+\end{Exercise}
+
+\newpage
+
+\begin{Exercise}[title=**]
+	Use the derivative to show the following inequalities:
+	\begin{itemize}
+		\item[a)]{$e^x>1+x$ if $x\neq 0$}
+		\item[b)]{$x-\frac{x^2}{2}<\ln(1+x)<x$ for $x>0$}
+		\item[c)]{$(x^a+y^a)^{\frac{1}{a}}>(x^b+y^b)^{\frac{1}{b}}$ for $x>0$, $y>0$, and $0<a<b$.}
+	\end{itemize} 
+	
+	[Hint: composition by monotonically increasing functions preserve inequalities]
+	
+	[Hint: if two functions have the same value at a point, what can we say from their derivatives?]
 \end{Exercise}
 
 \end{document}

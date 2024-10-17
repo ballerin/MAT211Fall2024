@@ -87,22 +87,24 @@
 	$$\quad d_3(x,y)=\frac{|x-y|}{1+|x-y|}$$
 	Determine, for each one of these, whether it is a metric or not.\\
 	\smallskip
-	Assume now that $(X,d)$ is a metric space. Is $\delta=\frac{d}{1+d}$ a distance?
+\end{Exercise}
+\begin{Exercise}[title=*]
+	Suppose that $(X,d)$ is a metric space. Is $\delta=\frac{d}{1+d}$ a distance?
 \end{Exercise}
 
 \begin{Exercise}[title=** - $\ell_p$ spaces]
 	Let us consider the set $\mathbb R^n$ and the functions $\rho_p\colon \mathbb R^n\times \mathbb R^n\to \mathbb R$ defined by $$\rho_p(x,y)=(\sum_{k=1}^{n}|x_k-y_k|^p)^{1/p},\quad 1\leq p<\infty.$$ Show that $(\mathbb R^n, \rho_p)$ are metric spaces.
 	
 	Hint:
-	\begin{itemize}
+	\begin{enumerate}[label={\alph*)}]
 		% \item [1.]{Assume the H\"{o}lder inequality. {\it Let $1<p<\infty$ and $q$ is defined by $1/p+1/q=1$}. Given $x,y\in\mathbb R^n$ we have $$\sum_{k=1}^{n}|x_ky_k|\leq (\sum_{k=1}^{n}|x_k|^p)^{1/p}(\sum_{k=1}^{n}|y_k|^q)^{1/q}.$$}
-		\item[1.]{Assume the Minkowski inequality to be true:\\{\it Let $1<p<\infty$. If $x\in\mathbb R^n$ then we denote $|x|_p=(\sum_{k=1}^{n}|x_k|^p)^{1/p}$ (it is called $p$-norm of $x\in \mathbb R^n$).  Then if $x,y\in\mathbb R^n$ it follows that $$|x+y|_p\leq|x|_p+|y|_p.$$}}
-		\item[2.]{Use this inequality to prove the triangle inequality for $\rho_p$.}
-	\end{itemize}
+		\item {Assume the Minkowski inequality to be true:\\{\it Let $1<p<\infty$. If $x\in\mathbb R^n$ then we denote $|x|_p=(\sum_{k=1}^{n}|x_k|^p)^{1/p}$ (it is called $p$-norm of $x\in \mathbb R^n$).  Then if $x,y\in\mathbb R^n$ it follows that $$|x+y|_p\leq|x|_p+|y|_p.$$}}
+		\item {Use this inequality to prove the triangle inequality for $\rho_p$.}
+	\end{enumerate}
 \end{Exercise}
 
-\begin{Exercise}[title=*$\dagger$ - The Manhattan distance]
-	Let the "Manhattan distance" function $\rho_{max}(x,y)$ for $x,y\in\mathbb R^n$, $n\in\mathbb N$ be $$\rho_{\max}(x,y)=\max\limits_{1\leq k\leq n}\{|x_k-y_k|\}$$ Is $\rho_{max}$ a metric in $\mathbb R^2$? Why do you think it is called the "Manhattan distance"?
+\begin{Exercise}[title=*$\dagger$]
+	Let the function $\rho_{max}(x,y)$ for $x,y\in\mathbb R^n$, $n\in\mathbb N$ be $$\rho_{\max}(x,y)=\max\limits_{1\leq k\leq n}\{|x_k-y_k|\}$$ Is $\rho_{max}$ a metric in $\mathbb R^2$?
 \end{Exercise}
 
 \begin{Exercise}[title=*]
@@ -121,7 +123,7 @@
 
 \begin{Exercise}[title=*$\dagger$]
 	 Let $X=[0,1]\cup[2,4)$, with $d(x,y)=|x-y|$.
-	\begin{enumerate}
+	\begin{enumerate}[label={\alph*)}]
 		\item $A=[2,4)$ is it open ? Is it closed ?
 		\item Show that $B=[0,1]$ is both open and closed
 		\item What about $X$?
@@ -129,8 +131,8 @@
 \end{Exercise}
 
 \begin{Exercise}[title=*$\dagger$]
-	Decide, by using the definitions, whether the following sets are open or closed:
-	\begin{enumerate}
+	Decide, by using the definitions, whether the following sets are open or closed as subsets of $\mathbb R$
+	\begin{enumerate}[label={\alph*)}]
 		\item $\Q$
 		\item $\N$
 		\item $\R \backslash \{0\}$
@@ -148,6 +150,24 @@
 	
 \end{Exercise}
 
+\begin{Exercise}[title=**]
+	Let
+	\[\mathring{A}=\{x\;|\;x \text{ is an interior point of } A\},\]
+	\[\bar{A}=\{x\;|\;x\in A \text{ or } x \text{ is a boundary point of } A\}.\]
+	Show that $\mathring{A}$ is open and $\bar{A}$ is closed.
+	
+	[Hint: this is not trivial. We need to show that an interior point stays interior even when we remove the boundary, and that if we add the boundary then the boundary of this new set we have created is not "bigger"]
+\end{Exercise}
+
+\begin{Exercise}[title=*]
+	\begin{enumerate}[label={\alph*)}]
+	\item Show that arbitrary union of open sets is an open set.
+	\item Show that finite intersection of open sets is open.
+	\item Show with an example that countable intersection of open sets can be closed.
+	\item Apply now De Morgan's laws to show that  arbitrary intersection of closed sets is closed and finite union of closed sets is closed.
+	\item Show with an example that countable union of closed sets can be open.
+	\end{enumerate}
+\end{Exercise}
 
 \end{document}
 

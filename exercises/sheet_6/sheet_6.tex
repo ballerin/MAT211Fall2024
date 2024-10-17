@@ -103,25 +103,21 @@ Recall that the partial limits of a given sequence are the limits of subsequence
 \end{Exercise}
 
 \begin{Exercise}[title= *]  
+\begin{enumerate}
+	\item 
+
 Give an example of a sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb R$ such that a finite set of numers $$a_1,a_2,\ldots,a_p$$ are partial limits for $(x_n)_{n\in\mathbb{N}}$.
-\end{Exercise}
 
-\begin{Exercise}[title= **]
-Give an example of a sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb R$ such that a countably infinite set of numers $$a_1,a_2,\ldots,a_p, \ldots$$ are partial limits for $(x_n)_{n\in\mathbb{N}}$. What are other partial limits does the sequence $(x_n)_{n\in\mathbb{N}}$ admit?
-\end{Exercise}
-
-\begin{Exercise}[title=**]
-	Review the proof of Theorem 3.17 of Rudin, which says that for a sequence $(s_n)_n$ of real numbers and $E$ the set of all the limits of subsequences $(s_{n_k})_k$ of $(s_n)_n$, $\sup E$ has the following properties:
-	\begin{enumerate}
-		\item $\sup E \in E$
-		\item if $x>\sup E$ then there is a natural number $N\in\N$ such hat for $n\geq N$ it holds that $S_n<x$
-	\end{enumerate}
+\item Give an example of a sequence $(x_n)_{n\in\mathbb{N}}$ in $\mathbb R$ such that a countably infinite set of numers $$a_1,a_2,\ldots,a_p, \ldots$$ are partial limits for $(x_n)_{n\in\mathbb{N}}$.
+\end{enumerate}
 \end{Exercise}
 
 \begin{Exercise}[title=*$\dagger$]
 	Show that for wo sequences $(s_n)_n$ and $(t_n)_n$ in $\R$, if $s_n\leq t_n$ for $n\geq N$ where $N$ is a fixed natural number, then
 	$$\liminf_{n\to\infty} s_n \leq \liminf_{n\to\infty} t_n$$
 	$$\limsup_{n\to\infty} s_n \leq \limsup_{n\to\infty} t_n$$
+	
+	[Hint: proceed by contradiction]
 \end{Exercise}
 
 \begin{Exercise}[title= **]
@@ -129,13 +125,11 @@ Let $(x_n)_{n\in\mathbb{N}}$ and $(y_n)_{n\in\mathbb{N}}$ be (not necessarily co
 \begin{itemize}
 	\item[i)] Show that $$\liminf\limits_{n\to\infty}x_n+\liminf\limits_{n\to\infty}y_n\leq\liminf\limits_{n\to\infty}(x_n+y_n)\leq \liminf\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n$$
 	\item[ii)] Show that $$\liminf\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n\leq\limsup\limits_{n\to\infty}(x_n+y_n)\leq \limsup\limits_{n\to\infty}x_n+\limsup\limits_{n\to\infty}y_n$$
-	\item[iii)] Construct examples that make the previous inequalities strict.
 \end{itemize}
 \end{Exercise}
 
 
 \begin{Exercise}[title=**$\dagger$]
-	[Rudin 3.4]
 Find the $\limsup$ and $\liminf$ for each one of the following sequences:
 \begin{enumerate}
 	\item[i)] $u_n=(-1)^n$,
@@ -146,7 +140,22 @@ Find the $\limsup$ and $\liminf$ for each one of the following sequences:
 \end{Exercise}
 
 \begin{Exercise}[title= **$\dagger$]
-Let $(p_n)_{n\in\mathbb{N}}$ and $(q_n)_{n\in\mathbb{N}}$ be Cauchy sequences in a metric space $(X,d)$. Let $(d_n)_{n\in\mathbb{N}}$ be the sequence of distances between $p_n$ and $q_n$, i.e.  $d_n=d(p_n,q_n)$. Show that $(d_n)_{n\in\mathbb{N}}$ converges in $\mathbb R$.
+Let $(p_n)_{n\in\mathbb{N}}$ and $(q_n)_{n\in\mathbb{N}}$ be Cauchy sequences in a metric space $(X,d)$, not necessarily complete. We know that these sequences might not converge in $X$. Let $(d_n)_{n\in\mathbb{N}}$ be the sequence of distances between $p_n$ and $q_n$, i.e.  $d_n=d(p_n,q_n)$. Show that $(d_n)_{n\in\mathbb{N}}$ converges in $\mathbb R$.
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Let $(u_n)_{n\in\mathbb{N}}$ be a sequence in $\mathbb{R}$.
+	\begin{enumerate}
+		\item Suppose that the sequence $(u_n)_{n\in\mathbb{N}}$ converges to $l$. Prove that $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ also converge to $l$. 
+		\item Prove the inverse is not true, that is if $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ both converge then $(u_n)_{n\in\mathbb{N}}$ might not converge.
+		\item Prove that however if $(u_{2n})_{n\in\mathbb{N}}$ and $(u_{2n+1})_{n\in\mathbb{N}}$ converge to the same limit $l$ then $(u_n)_{n\in\mathbb{N}}$ also converges to $l$.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title=**$\dagger$]
+	Recall the definition of limit of a function $f:E(\subseteq X)\to Y$, i.e. for $a$ a limit point of $E$ we say $\lim_{x\rightarrow a} f(x) = b$ if there is a point $b\in Y$ s.t. $\forall\varepsilon>0\exists\delta>0$ s.t. $d_Y(f(x),b)<\varepsilon$ whenever $x\in E$ and $d_X(x,a)<\delta$.
+	
+	Show that $\lim_{x\rightarrow a} f(x) = b$ if and only if every sequence $(x_n)_n$ s.t $x_n\neq a$ and $x_n\to a$ is such that $f(p_n)\to q$.
 \end{Exercise}
 
 \end{document}
