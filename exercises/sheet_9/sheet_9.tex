@@ -82,48 +82,42 @@
 \vspace{50pt}
 
 \begin{Exercise}[title={**$\dagger$}]
-	Revise theorem 3.55 of Rudin. Let $\sum_{n=0}^{\infty}a_n$ be a series of complex numbers which converges absolutely. Show that every rearrangement also converges and it does converge to the same sum. 
-\end{Exercise}
-
-\begin{Exercise}[title=*]
-	Let $(X,d)$ be a metric space and $E\subset X$. Let $f:E\to\mathbb{R}$ be a function. We say that $f(t)\to A$ as $t\to x$, where $t,x\in\overline\R$ are numbers of the extended real line ($\R\cup\{-\infty,+\infty\}$), if for every neighborhood $U$ of $A$ there is a neighborhood $V$ of $x$ such that $V\cap E$ is not empty and such that $f(t)\in U$ for all $t\in V\cap E$. Define any interval $(c,+\infty)$ for $c\in\R$ to be a neighborhood of $+\infty$, and  $(-\infty,c)$ to be a neighborhood of $-\infty$.
-	
-	Check that this new definition of limit of a function corresponds to the usual one when $A,x\in \R$.
-\end{Exercise}
-
-\begin{Exercise}[title=**]
-	Revise Theorem 4.20 of Rudin, i.e. that in a noncompact subset of $\R$, either bounded or unbounded, there exists:
+	Let $c_0$ be the set of all the sequences $\textbf{x}=(x_n)_n$ of real numbers such that $x_n\to0$.
 	\begin{enumerate}
-		\item a continuous function that is not bounded
-		\item a continuous function that is bounded but has no maximum
-		\item a continuous function that is not uniformly continuous when $E$ is bounded 
+		\item Check that $c_0$ is a vector space.
+		\item Show that \[\lVert \textbf{x} \rVert = \sup\{|x_k|\}\] is a norm on $c_0$.
+		\item Prove that the set $\{\textbf{e}_k\}$, where $\textbf{e}_k = (0,0,\dots,0,1,0,\dots)$, is a basis for $c_0$.
 	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title={**$\dagger$}]
+	Let $l_1$ be the set of all the sequences $\textbf{x}=(x_n)_n$ of real numbers such that $\sum_{n=0}^\infty |x_n|$ converges.
+	\begin{enumerate}
+		\item Show that $l_1$ is a vector space.
+		\item Show that \[\lVert \textbf{x} \rVert = \sum_{n=0}^\infty |x_n|\] is a norm on $l_1$.
+		\item Prove that the set $\{\textbf{e}_k\}$, where $\textbf{e}_k = (0,0,\dots,0,1,0,\dots)$, is a basis for $l_1$.
+		\item Show that $l_1$ is complete.
+	\end{enumerate}
+\end{Exercise}
+
+\begin{Exercise}[title={**$\dagger$}]
+	Assume that $(u_n)_n$ and $(v_n)_n$ are two converging sequences in an inner product space, converging to $u$ and $v$ respectively. Show that $(\langle u_n, v_n\rangle)_n$ converges to $\langle u, v\rangle$
+\end{Exercise}
+
+\begin{Exercise}[title={**}]
+	Show that whenever the norm is defines from an inner product, as $\lVert u \rVert = \langle u,u\rangle^\frac{1}{2}$ the following equality holds for any two vectors $u,v$:
+	\[\lVert u+v \rVert^2+\lVert u-v \rVert^2 = 2(\lVert u \rVert^2+\lVert v \rVert^2)\]
+\end{Exercise}
+
+\begin{Exercise}[title={*}]
+	Let $S$ be a nonempty set in an inner product space $V$ and define
+	\[S^\perp = \{u\in V \;\;|\; \langle u,s\rangle=0\;\forall s\in S\}.\]
+	Show that $S^\perp$ is closed.
 	
-	In addition show that there are choices for $E$ unbounded such that all continuous functions are also uniformly continuous.
+	[Hint: take a convergent sequence and show that the limit belong to the set]
 \end{Exercise}
 
-\begin{Exercise}[title=**]
-	Revise Theorem 4.22 of Rudin, i.e. that $f(E)$ is connected whenever $f:E\to Y$, for $E\subset X$ a connected set, is a continuous map between metric spaces.
-\end{Exercise}
 
-\begin{Exercise}[title=*]
-	Can a monotonic function admit a discontinuity of the second kind? Provide an example or argue that it is not possible.
-\end{Exercise}
-
-\begin{Exercise}[title=**]
-	Revise Theorem 4.30 of Rudin, i.e. that a monotonic real function defined on $(a,b)$ has at most countably many discontinuities of the first kind. Can you come up with a function that is monotonic in $(a,b)$ and has a countably infinite number of discontinuities?
-\end{Exercise}
-
-\begin{Exercise}[title=**$\dagger$]
-For each of the following real-valued functions of a real variable give a well written $\epsilon-\delta$ proof of the claim
-\begin{enumerate}
-	\item $$\lim_{x\rightarrow 1} x = 1$$
-	\item $$\lim_{x\rightarrow 2} x^2+3 = 7$$
-	\item $$\lim_{x\rightarrow 1} \frac{x^2-1}{x-1} = 0$$
-	\item $$\lim_{x\rightarrow 0} e^x = 1$$
-\end{enumerate}
-
-\end{Exercise}
 
 
 
